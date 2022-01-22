@@ -43,6 +43,9 @@ o.relativenumber = true
 
 vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
 vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType svelte setlocal shiftwidth=2 tabstop=2')
 vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
 vim.api.nvim_command('autocmd FileType xml setlocal shiftwidth=2 tabstop=2')
 vim.api.nvim_command('autocmd FileType elixir setlocal shiftwidth=2 tabstop=2')

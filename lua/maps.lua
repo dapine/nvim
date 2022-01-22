@@ -26,6 +26,11 @@ map('n', '<A-i>', ':bprevious<cr>', options)
 map('n', '<A-o>', ':bnext<cr>', options)
 map('n', '<Leader>q', ':bw<cr>', options)
 
+map('n', '<A-f>', '<C-f>', options)
+map('n', '<A-b>', '<C-b>', options)
+map('n', '<C-f>', '<Nop>', options)
+map('n', '<C-b>', '<Nop>', options)
+
 map('n', '<A-h>', '<C-w>h', options)
 map('n', '<A-j>', '<C-w>j', options)
 map('n', '<A-k>', '<C-w>k', options)
@@ -33,3 +38,5 @@ map('n', '<A-l>', '<C-w>l', options)
 
 map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
+
+map('i', '<C-n>', '<Nop>', options)
