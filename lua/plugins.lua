@@ -7,7 +7,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
 
 	-- (v)ui
-  use 'jose-elias-alvarez/buftabline.nvim'
   use 'dapine/gruvbox-minimal'
   use 'kyazdani42/nvim-tree.lua'
   use 'nvim-treesitter/nvim-treesitter'
