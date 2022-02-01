@@ -61,3 +61,5 @@ require'lualine'.setup {
 }
 
 require('telescope').setup{}
+
+require('gitsigns').setup()

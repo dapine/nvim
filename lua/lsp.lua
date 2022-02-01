@@ -37,9 +37,14 @@ nvim_lsp['tsserver'].setup {
 }
 
 nvim_lsp['elixirls'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { os.getenv("HOME") .. "/.cache/nvim/elixir-ls/rel/language_server.sh" }
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { os.getenv("HOME") .. "/.cache/nvim/elixir-ls/rel/language_server.sh" }
+}
+
+nvim_lsp['svelte'].setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
 }
 
 -- nvim-cmp setup
