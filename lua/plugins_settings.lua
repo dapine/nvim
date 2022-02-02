@@ -1,10 +1,17 @@
 -- nvim-tree
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-vim.g.nvim_tree_side = "right"
-vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_show_icons = {
-	folders = 0,
-	files = 0
+require'nvim-tree'.setup {
+  diagnostics = {
+    enable = false,
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    side = 'right',
+    signcolumn = "yes"
+  },
 }
 
 -- lualine
