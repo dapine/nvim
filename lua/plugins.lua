@@ -10,9 +10,7 @@ return require('packer').startup(function()
   use 'dapine/gruvbox-minimal'
   use 'kyazdani42/nvim-tree.lua'
   use 'nvim-treesitter/nvim-treesitter'
-  use 'rktjmp/lush.nvim'
-  use 'npxbr/gruvbox.nvim'
-	use 'dylanaraps/wal.vim'
+  use 'elianiva/gruvy.nvim'
   use 'hoob3rt/lualine.nvim'
   use {
     'nvim-telescope/telescope.nvim',

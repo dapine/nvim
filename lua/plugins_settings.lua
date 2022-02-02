@@ -8,10 +8,11 @@ vim.g.nvim_tree_show_icons = {
 }
 
 -- lualine
+lualine_theme = os.date("*t", os.time()).hour >= 19 and "gruvbox_dark" or "gruvbox_light"
 require'lualine'.setup {
   options = {
     icons_enabled = false,
-    theme = 'gruvbox_dark',
+    theme = lualine_theme,
     component_separators = {left = '', right = ''},
     section_separators = {left = '', right = ''},
     disabled_filetypes = {}

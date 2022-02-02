@@ -34,9 +34,13 @@ o.mouse = "a"
 
 -- Visual
 bo.syntax = "on"
-o.termguicolors = true
+vim.opt.termguicolors = true
 o.showmatch = true
-o.background = "dark"
+if (os.date("*t", os.time()).hour >= 19) then
+	o.background = "dark"
+else
+	o.background = "light"
+end
 vim.cmd([[colorscheme gruvbox]])
 o.number = true
 o.relativenumber = true
