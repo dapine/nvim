@@ -2,6 +2,8 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 
+local theme = require "theme"
+
 bo.shiftwidth = 4
 bo.tabstop = 4
 bo.expandtab = true
@@ -36,12 +38,8 @@ o.mouse = "a"
 bo.syntax = "on"
 vim.opt.termguicolors = true
 o.showmatch = true
-if (os.date("*t", os.time()).hour >= 19) then
-	o.background = "dark"
-else
-	o.background = "light"
-end
-vim.cmd([[colorscheme gruvbox]])
+o.background = theme.background
+vim.cmd("colorscheme " .. theme.colorscheme)
 o.number = true
 o.relativenumber = true
 

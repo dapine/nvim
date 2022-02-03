@@ -11,6 +11,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   use 'nvim-treesitter/nvim-treesitter'
   use 'elianiva/gruvy.nvim'
+  use 'ishan9299/modus-theme-vim'
   use 'hoob3rt/lualine.nvim'
   use {
     'nvim-telescope/telescope.nvim',
