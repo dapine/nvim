@@ -12,6 +12,30 @@ require'nvim-tree'.setup {
     side = 'right',
     signcolumn = "yes"
   },
+	actions = {
+		open_file = {
+			quit_on_open = true
+		}
+	},
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+  },
+  update_focused_file = {
+    enable = 1
+  }
+}
+vim.g.nvim_tree_show_icons = {
+  folders = 0,
+  files = 0,
+  git = 1,
+  folder_arrows = 0,
 }
 
 -- lualine
