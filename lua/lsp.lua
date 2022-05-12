@@ -1,5 +1,6 @@
 local nvim_lsp = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local util = require 'lspconfig/util'
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -46,6 +47,24 @@ nvim_lsp['svelte'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
+
+nvim_lsp['gopls'].setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+vim.api.nvim_command('autocmd BufWritePre *.go lua local goimport = require "goimport"; goimport.org_imports(1000)')
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
