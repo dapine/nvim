@@ -64,6 +64,11 @@ nvim_lsp['gopls'].setup {
   },
 }
 
+nvim_lsp['ocamllsp'].setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
+
 vim.api.nvim_command('autocmd BufWritePre *.go lua local goimport = require "goimport"; goimport.org_imports(1000)')
 
 -- nvim-cmp setup
