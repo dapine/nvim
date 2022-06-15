@@ -70,6 +70,7 @@ nvim_lsp['ocamllsp'].setup {
 }
 
 vim.api.nvim_command('autocmd BufWritePre *.go lua local goimport = require "goimport"; goimport.org_imports(1000)')
+vim.api.nvim_command('autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)')
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
