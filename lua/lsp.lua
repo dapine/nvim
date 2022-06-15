@@ -100,7 +100,7 @@ cmp.setup {
     ['<A-d>'] = cmp.mapping.scroll_docs(-4),
     ['<A-f>'] = cmp.mapping.scroll_docs(4),
     ['<A-Space>'] = cmp.mapping.complete(),
-		['jk'] = cmp.mapping.close(),
+		['<A-e>'] = cmp.mapping.close(),
 		['<Tab>'] = cmp.mapping.confirm({ select = true }),
 	}),
 

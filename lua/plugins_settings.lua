@@ -26,16 +26,18 @@ require'nvim-tree'.setup {
         none = "  ",
       },
     },
+		icons = {
+			show = {
+				file = false,
+				folder = false,
+				folder_arrow = false,
+				git = true,
+			}
+		}
   },
   update_focused_file = {
     enable = 1
-  }
-}
-vim.g.nvim_tree_show_icons = {
-  folders = 0,
-  files = 0,
-  git = 1,
-  folder_arrows = 0,
+  },
 }
 
 -- lualine

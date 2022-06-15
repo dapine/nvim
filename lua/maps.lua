@@ -16,6 +16,8 @@ map('n', 'N', 'Nzz', options)
 
 map('i', 'jk', '<esc>', options)
 map('i', '<C-d>', '<del>', options)
+map('i', '<A-i>', '<esc>:bprevious<cr>', options)
+map('i', '<A-o>', '<esc>:bnext<cr>', options)
 
 map('v', 'j', 'gj', options)
 map('v', 'k', 'gk', options)
