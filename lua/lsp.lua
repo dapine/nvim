@@ -82,34 +82,25 @@ cmp.setup {
     end,
   },
 
-  mapping = {
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+
+	mapping = cmp.mapping.preset.insert({
     ['<A-p>'] = cmp.mapping.select_prev_item(),
     ['<A-n>'] = cmp.mapping.select_next_item(),
     ['<A-d>'] = cmp.mapping.scroll_docs(-4),
     ['<A-f>'] = cmp.mapping.scroll_docs(4),
     ['<A-Space>'] = cmp.mapping.complete(),
-    ['<C-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
-  },
-  sources = {
+		['jk'] = cmp.mapping.close(),
+		['<Tab>'] = cmp.mapping.confirm({ select = true }),
+	}),
+
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+  }, {
     { name = 'buffer' },
-  },
+	}),
 }
