@@ -82,3 +82,5 @@ require'lualine'.setup {
 require('telescope').setup{}
 
 require('gitsigns').setup()
+
+require('bufchange_mode').setup()
