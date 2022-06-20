@@ -38,6 +38,7 @@ function toggle()
 
     vim.api.nvim_set_keymap('n', 'i', ':bprevious<cr>', { noremap = true })
     vim.api.nvim_set_keymap('n', 'o', ':bnext<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<Return>', ':ToggleBufchangeMode<cr>', { noremap = true })
 
     vim.api.nvim_buf_set_lines(buf, 0, -1, true, {'', ' BUFCHANGE MODE ON ', ''})
 
