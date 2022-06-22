@@ -40,5 +40,3 @@ map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
 
 map('i', '<C-n>', '<Nop>', options)
-
-map('n', '<Leader><Space>', ':ToggleBufchangeMode<cr>', options)

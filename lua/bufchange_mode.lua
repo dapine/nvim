@@ -4,14 +4,36 @@
 
 local M = {}
 
--- TODO: on setup, allow to customize options like:
--- - key to switch to the previous buffer, defaults to 'i'
--- - key to switch to the next buffer, defaults to 'o'
--- - popup style and border, defaults to minimal and rounded
+local defaultOpts = {
+	keybinds = {
+		previous_buffer = 'i',
+		next_buffer = 'o',
+		select_buffer = '<Return>',
+		toggle_bufchange_mode = '<leader><Space>',
+	},
+	view = {
+		popup_style = 'minimal',
+		popup_border = 'rounded',
+	}
+}
 
-M.setup = function()
+M.setup = function(opts)
+	if opts == nil then
+		opts = {
+			keybinds = {},
+			view = {},
+		}
+	else
+		opts.keybinds = opts.keybinds or {}
+		opts.view = opts.view or {}
+	end
+
+	for k, v in pairs(opts.keybinds) do	defaultOpts.keybinds[k] = v	end
+	for k, v in pairs(opts.view) do defaultOpts.view[k] = v	end
+
 	vim.api.nvim_set_var("bufchange_mode", false)
 	vim.api.nvim_create_user_command("ToggleBufchangeMode", toggle, {})
+	vim.api.nvim_set_keymap('n', defaultOpts.keybinds.toggle_bufchange_mode, ':ToggleBufchangeMode<cr>', {})
 end
 
 
@@ -27,8 +49,9 @@ function toggle()
 
     vim.api.nvim_buf_delete(buf, { force = true })
     vim.api.nvim_del_var("msg_buffer")
-    vim.api.nvim_del_keymap('n', 'i')
-    vim.api.nvim_del_keymap('n', 'o')
+    vim.api.nvim_del_keymap('n', defaultOpts.keybinds.previous_buffer)
+    vim.api.nvim_del_keymap('n', defaultOpts.keybinds.next_buffer)
+    vim.api.nvim_del_keymap('n', defaultOpts.keybinds.select_buffer)
     vim.api.nvim_set_var("bufchange_mode", false)
   else
     -- toggles on
@@ -36,9 +59,9 @@ function toggle()
     vim.api.nvim_set_var("msg_buffer", buf)
     vim.api.nvim_set_var("bufchange_mode", true)
 
-    vim.api.nvim_set_keymap('n', 'i', ':bprevious<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', 'o', ':bnext<cr>', { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Return>', ':ToggleBufchangeMode<cr>', { noremap = true })
+    vim.api.nvim_set_keymap('n', defaultOpts.keybinds.previous_buffer, ':bprevious<cr>', {})
+    vim.api.nvim_set_keymap('n', defaultOpts.keybinds.next_buffer, ':bnext<cr>', {})
+    vim.api.nvim_set_keymap('n', defaultOpts.keybinds.select_buffer, ':ToggleBufchangeMode<cr>', {})
 
     vim.api.nvim_buf_set_lines(buf, 0, -1, true, {'', ' BUFCHANGE MODE ON ', ''})
 
@@ -54,8 +77,8 @@ function toggle()
       col=col,
       width=win_width,
       height=win_height,
-      style='minimal',
-      border='rounded',
+      style=defaultOpts.view.popup_style,
+      border=defaultOpts.view.popup_border,
       focusable=false
     }
 
