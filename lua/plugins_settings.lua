@@ -88,3 +88,9 @@ require('telescope').setup{
 require('gitsigns').setup()
 
 require('bufchange_mode').setup()
+
+-- vim-comment
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { "elixir" },
+	command = [[setlocal commentstring=#\ %s]],
+})
