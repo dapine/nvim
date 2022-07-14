@@ -36,7 +36,7 @@ require'nvim-tree'.setup {
 		}
   },
   update_focused_file = {
-    enable = 1
+    enable = true
   },
 }
 
