@@ -18,12 +18,7 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
-	use {
-		'lewis6991/gitsigns.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim'
-		}
-	}
+	use 'lewis6991/gitsigns.nvim'
 
 	-- lsp, snippets, completion
   use 'neovim/nvim-lspconfig'
@@ -31,7 +26,7 @@ return require('packer').startup(function()
   use {
     "hrsh7th/nvim-cmp",
     requires = {
-      "hrsh7th/vim-vsnip",
+		  "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-buffer",
     }
   }
