@@ -5,6 +5,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
+  use 'lewis6991/impatient.nvim'
 
 	-- (v)ui
   use 'dapine/gruvbox-minimal'
