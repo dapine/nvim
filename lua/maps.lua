@@ -40,3 +40,14 @@ map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
 
 map('i', '<C-n>', '<Nop>', options)
+
+-- Acme-like go to next word occurrence.
+-- Maybe add a plumbing mechanism in the future?
+function search()
+  vim.api.nvim_input('*')
+end
+
+map('n', '<RightMouse>', ':lua search()<cr>', options)
+map('n', '<2-RightMouse>', ':lua search()<cr>', options)
+map('n', '<3-RightMouse>', ':lua search()<cr>', options)
+map('n', '<4-RightMouse>', ':lua search()<cr>', options)
