@@ -1,3 +1,5 @@
+local M = {}
+
 local nvim_lsp = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local util = require 'lspconfig/util'
@@ -68,16 +70,6 @@ nvim_lsp['rust_analyzer'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = { "*.go" },
-	command = 'lua local goimport = require "goimport"; goimport.org_imports(1000)',
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = { "*.go", "*.ex", "*.exs", "*.rs" },
-	command = 'lua vim.lsp.buf.formatting_sync(nil, 1000)',
-})
 
 nvim_lsp['ocamllsp'].setup {
 	on_attach = on_attach,
