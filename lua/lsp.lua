@@ -1,5 +1,3 @@
-local M = {}
-
 local nvim_lsp = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local util = require 'lspconfig/util'
