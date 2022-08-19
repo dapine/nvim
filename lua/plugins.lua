@@ -30,4 +30,6 @@ return require('packer').startup(function()
       "hrsh7th/cmp-buffer",
     }
   }
+	use 'williamboman/nvim-lsp-installer'
+	use { "mfussenegger/nvim-jdtls", ft = { "java" } }
 end)

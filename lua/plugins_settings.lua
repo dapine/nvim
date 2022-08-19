@@ -94,3 +94,5 @@ vim.api.nvim_create_autocmd('FileType', {
 	pattern = { "elixir" },
 	command = [[setlocal commentstring=#\ %s]],
 })
+
+require("nvim-lsp-installer").setup {}
