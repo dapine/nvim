@@ -1,6 +1,6 @@
-local nvim_lsp = require 'lspconfig'
+local M = {}
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local util = require 'lspconfig/util'
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -25,51 +25,12 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local ok, _ = pcall(require, 'cmp_nvim_lsp')
+if ok then
+	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+end
 
-nvim_lsp['pyright'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+M.on_attach = on_attach
+M.capabilities = capabilities
 
-nvim_lsp['tsserver'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-nvim_lsp['elixirls'].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	cmd = { os.getenv("HOME") .. "/.cache/nvim/elixir-ls/rel/language_server.sh" }
-}
-
-nvim_lsp['svelte'].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-
-nvim_lsp['gopls'].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-  cmd = {"gopls", "serve"},
-  filetypes = {"go", "gomod"},
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-}
-
-nvim_lsp['rust_analyzer'].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-
-nvim_lsp['ocamllsp'].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+return M
