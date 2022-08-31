@@ -41,6 +41,8 @@ map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
 
 map('i', '<C-n>', '<Nop>', options)
 
+map('n', '<Tab>', ':bnext<cr>', options)
+
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
 function search()
