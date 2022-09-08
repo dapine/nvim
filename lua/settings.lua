@@ -39,9 +39,15 @@ bo.syntax = "on"
 vim.opt.termguicolors = true
 o.showmatch = true
 o.background = theme.background
-vim.cmd("colorscheme " .. theme.colorscheme)
 o.number = true
 o.relativenumber = true
+
+local ok, _ = pcall(vim.cmd, "colorscheme "..theme.colorscheme)
+if ok then
+  vim.cmd("colorscheme " .. theme.colorscheme)
+else
+  vim.cmd("colorscheme "..theme.colorscheme_fallback)
+end
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "typescript",
