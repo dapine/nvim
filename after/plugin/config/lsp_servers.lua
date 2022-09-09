@@ -1,3 +1,20 @@
+local nvim_lsp_ok, _ = pcall(require, 'lspconfig')
+local util_ok, _ = pcall(require, 'lspconfig/util')
+local my_lsp_ok, _ = pcall(require, 'lsp')
+
+if not nvim_lsp_ok then
+	vim.notify('lspconfig not loaded')
+	return
+end
+if not util_ok then
+	vim.notify('lspconfig/util not loaded')
+	return
+end
+if not my_lsp_ok then
+	vim.notify('my lsp not loaded')
+	return
+end
+
 local nvim_lsp = require 'lspconfig'
 local util = require 'lspconfig/util'
 local lsp = require('lsp')

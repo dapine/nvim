@@ -1,3 +1,15 @@
+local cmp_ok, _ = pcall(require, 'cmp')
+local luasnip_ok, _ = pcall(require, 'luasnip')
+
+if not cmp_ok then
+	vim.notify('lsp_cmp not loaded')
+	return
+end
+if not luasnip_ok then
+	vim.notify('luasnip not loaded')
+	return
+end
+
 local cmp = require 'cmp'
 
 cmp.setup {

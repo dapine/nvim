@@ -1,3 +1,10 @@
+local ok, _ = pcall(require, 'nvim-tree')
+
+if not ok then
+	vim.notify('nvim-tree not loaded')
+	return
+end
+
 require'nvim-tree'.setup {
   diagnostics = {
     enable = false,
