@@ -41,6 +41,7 @@ o.showmatch = true
 o.background = theme.background
 o.number = true
 o.relativenumber = true
+o.ch = 0
 
 local ok, _ = pcall(vim.cmd, "colorscheme "..theme.colorscheme)
 if ok then
