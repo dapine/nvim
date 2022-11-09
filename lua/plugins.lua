@@ -45,7 +45,8 @@ return require('packer').startup(function(use)
       "hrsh7th/cmp-buffer",
     }
   }
-	use 'williamboman/nvim-lsp-installer'
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
 	use { "mfussenegger/nvim-jdtls", ft = { "java" } }
 
 	if packer_bootstrap then
