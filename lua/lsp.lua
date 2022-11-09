@@ -27,7 +27,7 @@ end
 
 local ok, _ = pcall(require, 'cmp_nvim_lsp')
 if ok then
-	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+	capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 end
 
 M.on_attach = on_attach
