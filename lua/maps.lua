@@ -1,4 +1,5 @@
 local map = vim.api.nvim_set_keymap
+local navigator, _ = pcall(require, 'Navigator')
 
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
@@ -28,13 +29,22 @@ map('n', '<Leader>q', ':bw<cr>', options)
 
 map('n', '<A-f>', '<C-f>', options)
 map('n', '<A-b>', '<C-b>', options)
+map('n', '<Leader>j', '<C-f>', options)
+map('n', '<Leader>k', '<C-b>', options)
 map('n', '<C-f>', '<Nop>', options)
 map('n', '<C-b>', '<Nop>', options)
 
-map('n', '<A-h>', '<C-w>h', options)
-map('n', '<A-j>', '<C-w>j', options)
-map('n', '<A-k>', '<C-w>k', options)
-map('n', '<A-l>', '<C-w>l', options)
+if navigator then
+	vim.keymap.set({'n', 't'}, '<A-h>', '<CMD>NavigatorLeft<CR>')
+	vim.keymap.set({'n', 't'}, '<A-l>', '<CMD>NavigatorRight<CR>')
+	vim.keymap.set({'n', 't'}, '<A-k>', '<CMD>NavigatorUp<CR>')
+	vim.keymap.set({'n', 't'}, '<A-j>', '<CMD>NavigatorDown<CR>')
+else
+	map('n', '<A-h>', '<C-w>h', options)
+	map('n', '<A-j>', '<C-w>j', options)
+	map('n', '<A-k>', '<C-w>k', options)
+	map('n', '<A-l>', '<C-w>l', options)
+end
 
 map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)

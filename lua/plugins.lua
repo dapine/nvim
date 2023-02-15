@@ -34,6 +34,12 @@ return require('packer').startup(function(use)
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 	use 'lewis6991/gitsigns.nvim'
+	use {
+    'numToStr/Navigator.nvim',
+    config = function()
+        require('Navigator').setup()
+    end
+	}
 
 	-- lsp, snippets, completion
   use 'neovim/nvim-lspconfig'
