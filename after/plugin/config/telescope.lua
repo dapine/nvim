@@ -10,3 +10,4 @@ require('telescope').setup{
     file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" }
   }
 }
+require("telescope").load_extension "file_browser"
