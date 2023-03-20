@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
 
 	-- (v)ui
   use 'dapine/gruvbox-minimal'
-  use 'kyazdani42/nvim-tree.lua'
   use 'nvim-treesitter/nvim-treesitter'
   use 'elianiva/gruvy.nvim'
   use 'ishan9299/modus-theme-vim'
@@ -34,12 +33,6 @@ return require('packer').startup(function(use)
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 	use 'lewis6991/gitsigns.nvim'
-	use {
-    'numToStr/Navigator.nvim',
-    config = function()
-        require('Navigator').setup()
-    end
-	}
 
 	-- lsp, snippets, completion
   use 'neovim/nvim-lspconfig'

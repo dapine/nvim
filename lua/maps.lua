@@ -1,5 +1,4 @@
-local map = vim.api.nvim_set_keymap
-local navigator, _ = pcall(require, 'Navigator')
+local map = vim.keymap.set
 
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
@@ -17,34 +16,22 @@ map('n', 'N', 'Nzz', options)
 
 map('i', 'jk', '<esc>', options)
 map('i', '<C-d>', '<del>', options)
-map('i', '<A-i>', '<esc>:bprevious<cr>', options)
-map('i', '<A-o>', '<esc>:bnext<cr>', options)
 
 map('v', 'j', 'gj', options)
 map('v', 'k', 'gk', options)
 
-map('n', '<A-n>', ':NvimTreeToggle<cr>', options)
 map('n', '<Leader>b', ':Buffers<cr>', options)
 map('n', '<Leader>q', ':bw<cr>', options)
 
-map('n', '<A-f>', '<C-f>', options)
-map('n', '<A-b>', '<C-b>', options)
 map('n', '<Leader>j', '<C-f>', options)
 map('n', '<Leader>k', '<C-b>', options)
 map('n', '<C-f>', '<Nop>', options)
 map('n', '<C-b>', '<Nop>', options)
 
-if navigator then
-	vim.keymap.set({'n', 't'}, '<A-h>', '<CMD>NavigatorLeft<CR>')
-	vim.keymap.set({'n', 't'}, '<A-l>', '<CMD>NavigatorRight<CR>')
-	vim.keymap.set({'n', 't'}, '<A-k>', '<CMD>NavigatorUp<CR>')
-	vim.keymap.set({'n', 't'}, '<A-j>', '<CMD>NavigatorDown<CR>')
-else
-	map('n', '<A-h>', '<C-w>h', options)
-	map('n', '<A-j>', '<C-w>j', options)
-	map('n', '<A-k>', '<C-w>k', options)
-	map('n', '<A-l>', '<C-w>l', options)
-end
+map('n', '<A-h>', '<C-w>h', options)
+map('n', '<A-j>', '<C-w>j', options)
+map('n', '<A-k>', '<C-w>k', options)
+map('n', '<A-l>', '<C-w>l', options)
 
 map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
 map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
