@@ -4,6 +4,7 @@ map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
 options = { noremap = true }
+remap = { remap = true }
 
 map('n', '0', '^', options)
 map('n', ',', ';', options)
@@ -40,6 +41,17 @@ map('i', '<C-n>', '<Nop>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
 map('n', '<Leader><Tab>', ':bprevious<cr>', options)
+
+map('t', '<Esc>', '<C-\\><C-n>', options)
+map('t', 'jk', '<Esc>', remap)
+map('t', '<A-h>', '<Esc><C-w>h', remap)
+map('t', '<A-j>', '<Esc><C-w>j', remap)
+map('t', '<A-k>', '<Esc><C-w>k', remap)
+map('t', '<A-l>', '<Esc><C-w>l', remap)
+map('t', '<Leader>q', '<Esc>:bw!<cr>', remap)
+map({'n', 't'}, '<Leader>q', 'i<Esc>:bw!<cr>', remap)
+map('t', '<Tab>', '<Esc>:bnext<cr>', remap)
+map('t', '<Leader><Tab>', '<Esc>:bprevious<cr>', remap)
 
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
