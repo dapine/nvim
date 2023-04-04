@@ -32,6 +32,7 @@ require("lazy").setup({
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	},
 	'lewis6991/gitsigns.nvim',
+	"lukas-reineke/indent-blankline.nvim",
 
 	-- lsp, snippets, completion
 	'neovim/nvim-lspconfig',
