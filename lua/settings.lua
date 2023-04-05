@@ -42,13 +42,7 @@ o.background = theme.background
 o.number = true
 o.relativenumber = true
 o.ch = 0
-
-local ok, _ = pcall(vim.cmd, "colorscheme "..theme.colorscheme)
-if ok then
-  vim.cmd("colorscheme " .. theme.colorscheme)
-else
-  vim.cmd("colorscheme "..theme.colorscheme_fallback)
-end
+vim.cmd("colorscheme " .. theme.colorscheme)
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "typescript",

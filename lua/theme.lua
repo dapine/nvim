@@ -1,18 +1,35 @@
 local M = {}
 
-local cur_hour = os.date("*t", os.time()).hour
-local is_night = cur_hour >= 19
+local colorscheme_fallback = "default"
+local lualine_theme_fallback = "auto"
+local background_fallback = "dark"
 
-colorscheme_light = "modus-operandi"
-colorscheme_dark = "modus-vivendi"
-colorscheme_fallback = "default"
+local current_theme_ok, _ = pcall(require, "current_theme")
+if not current_theme_ok then
+	M.colorscheme = colorscheme_fallback
+	M.lualine_theme = lualine_theme_fallback
+	M.background = background_fallback
 
-lualine_light = "onelight"
-lualine_dark = "modus-vivendi"
+	return M
+end
 
-M.background = is_night and "dark" or "light"
-M.colorscheme = is_night and colorscheme_dark or colorscheme_light
-M.lualine_theme = is_night and lualine_dark or lualine_light
-M.colorscheme_fallback = colorscheme_fallback
+-- current_theme is a git ignored lua file with a module that exposes 
+-- "colorscheme", "lualine_theme" and "background" (either dark or light).
+-- e.g.
+-- M = {}
+-- M.colorscheme = "desert"
+-- M.lualine_theme = "base16"
+-- M.background = "dark"
+-- return M
+--
+local current_theme = require("current_theme")
+local colorscheme = current_theme.colorscheme
+local background = current_theme.background
+local lualine_theme = current_theme.lualine_theme
+
+
+M.colorscheme = colorscheme ~= nil and colorscheme or colorscheme_fallback
+M.lualine_theme = lualine_theme ~= nil and lualine_theme or lualine_theme_fallback
+M.background = background ~= nil and background or "dark"
 
 return M
