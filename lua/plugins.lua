@@ -18,10 +18,7 @@ require("lazy").setup({
 	'tpope/vim-surround',
 
 	-- (v)ui
-	'dapine/gruvbox-minimal',
 	'nvim-treesitter/nvim-treesitter',
-	'elianiva/gruvy.nvim',
-	{ 'ishan9299/modus-theme-vim', lazy=true },
 	'hoob3rt/lualine.nvim',
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -29,7 +26,14 @@ require("lazy").setup({
 	},
 	'lewis6991/gitsigns.nvim',
 	"lukas-reineke/indent-blankline.nvim",
-    "luukvbaal/nnn.nvim",
+	"luukvbaal/nnn.nvim",
+
+	-- colorschemes
+	{ 'ishan9299/modus-theme-vim', lazy=true },
+	'elianiva/gruvy.nvim',
+	'dapine/gruvbox-minimal',
+	'folke/tokyonight.nvim',
+	{ "catppuccin/nvim", name = "catppuccin" },
 
 	-- lsp, snippets, completion
 	'neovim/nvim-lspconfig',
