@@ -32,7 +32,7 @@ map('n', '<A-k>', '<C-w>k', options)
 map('n', '<A-l>', '<C-w>l', options)
 
 map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
-map('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', options)
+map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
 map('n', '<Leader><Tab>', ':bprevious<cr>', options)
