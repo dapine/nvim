@@ -3,8 +3,7 @@ local map = vim.keymap.set
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-options = { noremap = true }
-remap = { remap = true }
+local options = { noremap = true }
 
 map('n', '0', '^', options)
 map('n', ',', ';', options)
@@ -32,6 +31,7 @@ map('n', '<A-k>', '<C-w>k', options)
 map('n', '<A-l>', '<C-w>l', options)
 
 map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
+map('n', '<Leader>gr', '<cmd>Telescope live_grep<cr>', options)
 map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
