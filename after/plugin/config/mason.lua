@@ -1,6 +1,8 @@
 local ok_mason, _ = pcall(require, 'mason')
 local ok_mason_lspconfig, _ = pcall(require, 'mason-lspconfig')
 
+local cmp = require('cmp')
+
 if not ok_mason then
 	vim.notify('mason.nvim not loaded')
 	return
@@ -49,4 +51,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>d', require('telescope.builtin').diagnostics, opts)
   end,
+})
+
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+		['<A-k>'] = cmp.mapping.scroll_docs(-4),
+		['<A-j>'] = cmp.mapping.scroll_docs(4),
+	})
 })
