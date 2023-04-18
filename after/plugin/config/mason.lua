@@ -22,7 +22,10 @@ require("mason-lspconfig").setup_handlers {
 	end,
 	["jdtls"] = function()
 		-- use ftplugin/java.lua
-	end
+	end,
+	["lua_ls"] = function()
+		-- use ftplugin/lua.lua
+	end,
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
