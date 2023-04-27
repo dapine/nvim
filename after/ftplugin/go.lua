@@ -16,10 +16,10 @@ end
 
 vim.api.nvim_create_autocmd('BufWritePre', {
 	pattern = { "*.go" },
-	command = 'lua org_imports(1000)',
+	callback = function() org_imports(1000) end,
 })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
 	pattern = { "*.go" },
-	command = 'lua vim.lsp.buf.formatting_sync(nil, 1000)',
+	callback = function() vim.lsp.buf.format({ async = false }) end,
 })
