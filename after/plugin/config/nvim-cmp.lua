@@ -11,6 +11,7 @@ if not luasnip_ok then
 end
 
 local cmp = require 'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup {
   snippet = {
@@ -32,6 +33,7 @@ cmp.setup {
     ['<A-Space>'] = cmp.mapping.complete(),
 		['<A-e>'] = cmp.mapping.close(),
 		['<Tab>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 
   sources = cmp.config.sources({
@@ -41,3 +43,5 @@ cmp.setup {
     { name = 'buffer' },
 	}),
 }
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
