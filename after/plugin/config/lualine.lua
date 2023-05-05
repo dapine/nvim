@@ -1,15 +1,3 @@
-local theme_ok, _ = pcall(require, 'theme')
-local lualine_ok, _ = pcall(require, 'lualine')
-
-if not theme_ok then
-	vim.notify('theme not loaded')
-	return
-end
-if not lualine_ok then
-	vim.notify('lualine not loaded')
-	return
-end
-
 local theme = require "theme"
 require'lualine'.setup {
   options = {
