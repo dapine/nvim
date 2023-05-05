@@ -1,7 +1,7 @@
 local theme = require "theme"
 require'lualine'.setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = theme.use_nerd_font,
     theme = theme.lualine_theme,
     component_separators = {left = '', right = ''},
     section_separators = {left = '', right = ''},

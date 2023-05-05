@@ -42,6 +42,7 @@ require("lazy").setup({
 	'lewis6991/gitsigns.nvim',
 	"lukas-reineke/indent-blankline.nvim",
 	"luukvbaal/nnn.nvim",
+	"onsails/lspkind.nvim",
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },

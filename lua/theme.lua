@@ -3,12 +3,14 @@ local M = {}
 local colorscheme_fallback = "default"
 local lualine_theme_fallback = "auto"
 local background_fallback = "dark"
+local use_nerd_font_default = false
 
 local current_theme_ok, _ = pcall(require, "current_theme")
 if not current_theme_ok then
 	M.colorscheme = colorscheme_fallback
 	M.lualine_theme = lualine_theme_fallback
 	M.background = background_fallback
+	M.use_nerd_font = use_nerd_font_default
 
 	return M
 end
@@ -26,10 +28,11 @@ local current_theme = require("current_theme")
 local colorscheme = current_theme.colorscheme
 local background = current_theme.background
 local lualine_theme = current_theme.lualine_theme
-
+local use_nerd_font = current_theme.use_nerd_font
 
 M.colorscheme = colorscheme ~= nil and colorscheme or colorscheme_fallback
 M.lualine_theme = lualine_theme ~= nil and lualine_theme or lualine_theme_fallback
 M.background = background ~= nil and background or "dark"
+M.use_nerd_font = use_nerd_font
 
 return M
