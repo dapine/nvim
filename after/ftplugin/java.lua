@@ -74,3 +74,5 @@ local config = {
 }
 
 require('jdtls').start_or_attach(config)
+
+vim.keymap.set('n', '<leader>oo', require('jdtls').organize_imports, { noremap = true })
