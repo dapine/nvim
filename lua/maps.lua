@@ -30,8 +30,8 @@ map('n', '<A-j>', '<C-w>j', options)
 map('n', '<A-k>', '<C-w>k', options)
 map('n', '<A-l>', '<C-w>l', options)
 
-map('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', options)
-map('n', '<Leader>gr', '<cmd>Telescope live_grep<cr>', options)
+map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
+map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
 map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
@@ -41,11 +41,11 @@ map('n', 'L', ':bnext<cr>', options)
 
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
-function search()
+local function search()
   vim.api.nvim_input('*')
 end
 
-map('n', '<RightMouse>', ':lua search()<cr>', options)
-map('n', '<2-RightMouse>', ':lua search()<cr>', options)
-map('n', '<3-RightMouse>', ':lua search()<cr>', options)
-map('n', '<4-RightMouse>', ':lua search()<cr>', options)
+map('n', '<RightMouse>', search, options)
+map('n', '<2-RightMouse>', search, options)
+map('n', '<3-RightMouse>', search, options)
+map('n', '<4-RightMouse>', search, options)

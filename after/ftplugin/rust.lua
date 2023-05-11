@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd('BufWritePre', {
 	pattern = { "*.rs" },
-	command = 'lua vim.lsp.buf.formatting_sync(nil, 1000)',
+	callback = function() vim.lsp.buf.format { async = false, timeout = 1000 } end,
 })
 
 function cargo_run()
