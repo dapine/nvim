@@ -43,6 +43,7 @@ require("lazy").setup({
 	"lukas-reineke/indent-blankline.nvim",
 	"luukvbaal/nnn.nvim",
 	"onsails/lspkind.nvim",
+	"aserowy/tmux.nvim",
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },
