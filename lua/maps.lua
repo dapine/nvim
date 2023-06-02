@@ -22,8 +22,8 @@ map('v', 'k', 'gk', options)
 
 map('n', '<Leader>q', ':bw<cr>', options)
 
-map('n', '<Leader>j', '<C-f>', options)
-map('n', '<Leader>k', '<C-b>', options)
+map('n', '<Leader>j', 'Lzz', options)
+map('n', '<Leader>k', 'Hzz', options)
 
 map('n', '<A-w>', '<C-w>w', options)
 
@@ -33,8 +33,6 @@ map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
 map('n', '<Leader><Tab>', ':bprevious<cr>', options)
-map('n', 'H', ':bprevious<cr>', options)
-map('n', 'L', ':bnext<cr>', options)
 
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
