@@ -35,15 +35,16 @@ require("lazy").setup({
 	-- (v)ui
 	'nvim-treesitter/nvim-treesitter',
 	'hoob3rt/lualine.nvim',
+	'lewis6991/gitsigns.nvim',
+	"lukas-reineke/indent-blankline.nvim",
+	"onsails/lspkind.nvim",
+
+	-- navigation
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
-	'lewis6991/gitsigns.nvim',
-	"lukas-reineke/indent-blankline.nvim",
 	"luukvbaal/nnn.nvim",
-	"onsails/lspkind.nvim",
-	"aserowy/tmux.nvim",
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },

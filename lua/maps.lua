@@ -1,5 +1,3 @@
-local tmux = require("tmux")
-
 local map = vim.keymap.set
 
 map('n', '<Space>', '', {})
@@ -27,10 +25,7 @@ map('n', '<Leader>q', ':bw<cr>', options)
 map('n', '<Leader>j', '<C-f>', options)
 map('n', '<Leader>k', '<C-b>', options)
 
-map('n', '<A-h>', tmux.move_left, options)
-map('n', '<A-j>', tmux.move_bottom, options)
-map('n', '<A-k>', tmux.move_top, options)
-map('n', '<A-l>', tmux.move_right, options)
+map('n', '<A-w>', '<C-w>w', options)
 
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
 map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
