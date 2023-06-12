@@ -22,10 +22,8 @@ map('v', 'k', 'gk', options)
 
 map('n', '<Leader>q', ':bw<cr>', options)
 
-map('n', '<Leader>j', 'Lzz', options)
-map('n', '<Leader>k', 'Hzz', options)
-
-map('n', '<A-w>', '<C-w>w', options)
+map('n', '<Leader>j', '<C-f>zz', options)
+map('n', '<Leader>k', '<C-b>zz', options)
 
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
 map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
