@@ -30,7 +30,14 @@ local opts = {
 require("lazy").setup({
 	-- essential
 	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
-	'tpope/vim-surround',
+	{
+		'kylechui/nvim-surround',
+		version = '*',
+		event = 'VeryLazy',
+		config = function()
+			require('nvim-surround').setup()
+		end
+	},
 
 	-- (v)ui
 	'nvim-treesitter/nvim-treesitter',
