@@ -29,7 +29,7 @@ local opts = {
 
 require("lazy").setup({
 	-- essential
-	'tpope/vim-commentary',
+	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
 	'tpope/vim-surround',
 
 	-- (v)ui
