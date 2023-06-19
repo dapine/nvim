@@ -4,11 +4,11 @@ local bo = vim.bo
 
 local theme = require "theme"
 
-bo.shiftwidth = 4
-bo.tabstop = 4
-bo.expandtab = true
-bo.autoindent = true
-bo.smartindent = true
+o.shiftwidth = 4
+o.tabstop = 4
+o.expandtab = true
+o.autoindent = true
+o.smartindent = true
 
 o.backspace = "indent,eol,start"
 o.backup = false
