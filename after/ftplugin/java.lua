@@ -56,10 +56,6 @@ local config = {
 			},
 			format = {
 				enabled = true,
-				settings = {
-					url = vim.fn.stdpath("config") .. "/formatters/eclipse-java-google-style.xml",
-					profile = "GoogleStyle",
-				},
 			}
 		},
 		signatureHelp = { enabled = true },

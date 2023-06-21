@@ -74,5 +74,6 @@ require("lazy").setup({
 	'williamboman/mason-lspconfig.nvim',
 	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
 	'windwp/nvim-autopairs',
-	'saadparwaiz1/cmp_luasnip'
+	'saadparwaiz1/cmp_luasnip',
+  'jose-elias-alvarez/null-ls.nvim',
 }, opts)
