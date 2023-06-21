@@ -44,11 +44,9 @@ cmp.setup {
         mapping = cmp.mapping.preset.insert({
                 ['<A-p>'] = cmp.mapping(function(fallback)
                		if cmp.visible() then
-										cmp.mapping.select_prev_item()
+										cmp.select_prev_item()
 									elseif luasnip.jumpable(-1) then
 										luasnip.jump(-1)
-									elseif has_words_before() then
-										cmp.complete()
 									else
 										fallback()
                		end
