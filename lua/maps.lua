@@ -1,5 +1,17 @@
 local map = vim.keymap.set
 
+-- https://github.com/nvim-telescope/telescope.nvim/issues/2024#issuecomment-1580229786
+local telescope = require('telescope.builtin')
+local telescope_last = 0
+function telescope_resume()
+  if telescope_last == 0 then
+    telescope_last = 1
+    telescope.live_grep()
+  else
+    telescope.resume()
+  end
+end
+
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
@@ -26,7 +38,7 @@ map('n', '<Leader>j', '<C-f>zz', options)
 map('n', '<Leader>k', '<C-b>zz', options)
 
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
-map('n', '<Leader>gr', search_with_cache, options)
+map('n', '<Leader>gr', telescope_resume, options)
 map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
@@ -42,19 +54,3 @@ map('n', '<RightMouse>', search, options)
 map('n', '<2-RightMouse>', search, options)
 map('n', '<3-RightMouse>', search, options)
 map('n', '<4-RightMouse>', search, options)
-
-local telescope = require('telescope.builtin')
-local telescope_state = require('telescope.state')
-
-local last_search = nil
-
-local function search_with_cache()
-  if last_search == nil then
-    telescope.live_grep()
-
-    local cached_pickers = telescope_state.get_global_key "cached_pickers" or {}
-    last_search = cached_pickers[1]
-  else
-    telescope.resume({ picker = last_search })
-  end
-end
