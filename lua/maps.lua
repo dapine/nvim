@@ -54,3 +54,9 @@ map('n', '<RightMouse>', search, options)
 map('n', '<2-RightMouse>', search, options)
 map('n', '<3-RightMouse>', search, options)
 map('n', '<4-RightMouse>', search, options)
+
+-- nvim-spider
+map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+map({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })

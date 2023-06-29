@@ -55,6 +55,7 @@ require("lazy").setup({
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 	"luukvbaal/nnn.nvim",
+  'chrisgrieser/nvim-spider',
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },
