@@ -24,7 +24,10 @@ local opts = {
 				"zipPlugin",
 			}
 		}
-	}
+	},
+  defaults = {
+    lazy = true,
+  },
 }
 
 require("lazy").setup({
