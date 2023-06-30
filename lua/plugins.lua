@@ -32,7 +32,7 @@ local opts = {
 
 require("lazy").setup({
 	-- essential
-	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
+	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end, lazy = false },
 	{
 		'kylechui/nvim-surround',
 		version = '*',
@@ -66,7 +66,7 @@ require("lazy").setup({
 
 	-- lsp, snippets, completion
 	'neovim/nvim-lspconfig',
-	'hrsh7th/cmp-nvim-lsp',
+	{ 'hrsh7th/cmp-nvim-lsp', lazy = false },
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -78,6 +78,6 @@ require("lazy").setup({
 	'williamboman/mason-lspconfig.nvim',
 	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
 	'windwp/nvim-autopairs',
-	'saadparwaiz1/cmp_luasnip',
+	{ 'saadparwaiz1/cmp_luasnip', lazy = false },
   'jose-elias-alvarez/null-ls.nvim',
 }, opts)
