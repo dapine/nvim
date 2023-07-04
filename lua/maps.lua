@@ -60,3 +60,12 @@ map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc =
 map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 map({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.server_capabilities.signatureHelpProvider then
+      map('n', '<Leader>s', vim.lsp.buf.signature_help, options)
+    end
+  end,
+})
