@@ -1,5 +1,3 @@
-local cmp = require('cmp')
-
 require("mason").setup {}
 require("mason-lspconfig").setup {}
 
@@ -41,11 +39,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>d', require('telescope.builtin').diagnostics, opts)
   end,
-})
-
-cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		['<A-k>'] = cmp.mapping.scroll_docs(-4),
-		['<A-j>'] = cmp.mapping.scroll_docs(4),
-	})
 })
