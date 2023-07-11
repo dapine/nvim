@@ -12,5 +12,6 @@ null_ls.setup({
     formatting.google_java_format,
     code_actions.eslint_d,
     diagnostics.eslint_d,
+    formatting.prettierd,
   }
 })
