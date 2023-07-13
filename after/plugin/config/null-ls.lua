@@ -13,5 +13,7 @@ null_ls.setup({
     code_actions.eslint_d,
     diagnostics.eslint_d,
     formatting.prettierd,
+    formatting.mix,
+    diagnostics.credo,
   }
 })
