@@ -47,6 +47,15 @@ local function go_to_split(direction)
   vim.api.nvim_input(directions[buftype][direction])
 end
 
+local function close()
+  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+  if buftype == "terminal" then
+    vim.cmd("bw!")
+  else
+    vim.cmd("bw")
+  end
+end
+
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
@@ -67,7 +76,7 @@ map('i', '<C-d>', '<del>', options)
 map('v', 'j', 'gj', options)
 map('v', 'k', 'gk', options)
 
-map('n', '<Leader>q', ':bw<cr>', options)
+map('n', '<Leader>q', close, options)
 
 map('n', '<Leader>j', '<C-f>zz', options)
 map('n', '<Leader>k', '<C-b>zz', options)
