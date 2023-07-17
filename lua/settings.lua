@@ -81,3 +81,13 @@ vim.diagnostic.config({
 	signs = true,
 	update_in_insert = false,
 })
+
+vim.api.nvim_create_user_command('Vterm', function ()
+  vim.api.nvim_command('vsplit')
+  vim.api.nvim_command('terminal')
+end, {})
+
+vim.api.nvim_create_user_command('Hterm', function ()
+  vim.api.nvim_command('split')
+  vim.api.nvim_command('terminal')
+end, {})
