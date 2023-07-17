@@ -1,5 +1,43 @@
 local map = vim.keymap.set
 
+local function zoom()
+  vim.api.nvim_input('<C-w>_')
+  vim.api.nvim_input('<C-w>|')
+  vim.t.is_zoomed = true
+end
+
+local function unzoom()
+  vim.api.nvim_input('<C-w>=')
+  vim.t.is_zoomed = false
+end
+
+local function toggle_zoom_split()
+  local splits = #vim.api.nvim_tabpage_list_wins(0)
+  local is_zoomed = vim.t.is_zoomed
+
+  if not is_zoomed and splits > 1 then
+    zoom()
+  else
+    unzoom()
+  end
+end
+
+local function go_to_split(direction)
+  if vim.t.is_zoomed then
+    unzoom()
+  end
+
+  if direction == 'left' then
+    vim.api.nvim_input('<C-w>h')
+  elseif direction == 'right' then
+    vim.api.nvim_input('<C-w>l')
+  elseif direction == 'up' then
+    vim.api.nvim_input('<C-w>k')
+  elseif direction == 'down' then
+    vim.api.nvim_input('<C-w>j')
+  end
+end
+
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
@@ -33,6 +71,13 @@ map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
 map('n', '<Tab>', ':bnext<cr>', options)
 map('n', '<Leader><Tab>', ':bprevious<cr>', options)
+
+map('n', '<A-h>', function () go_to_split('left') end, options)
+map('n', '<A-j>', function () go_to_split('down') end, options)
+map('n', '<A-k>', function () go_to_split('up') end, options)
+map('n', '<A-l>', function () go_to_split('right') end, options)
+
+map('n', '<Leader>z', toggle_zoom_split, options)
 
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
