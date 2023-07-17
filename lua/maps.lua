@@ -91,6 +91,9 @@ map('t', '<A-j>', function () go_to_split('down') end, options)
 map('t', '<A-k>', function () go_to_split('up') end, options)
 map('t', '<A-l>', function () go_to_split('right') end, options)
 
+map('n', '<A-->', function () vim.api.nvim_command('Hterm') end, options)
+map('n', '<A-\\>', function () vim.api.nvim_command('Vterm') end, options)
+
 map('n', '<Leader>z', toggle_zoom_split, options)
 
 -- Acme-like go to next word occurrence.
