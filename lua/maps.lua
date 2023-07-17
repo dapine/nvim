@@ -27,15 +27,24 @@ local function go_to_split(direction)
     unzoom()
   end
 
-  if direction == 'left' then
-    vim.api.nvim_input('<C-w>h')
-  elseif direction == 'right' then
-    vim.api.nvim_input('<C-w>l')
-  elseif direction == 'up' then
-    vim.api.nvim_input('<C-w>k')
-  elseif direction == 'down' then
-    vim.api.nvim_input('<C-w>j')
-  end
+  local directions = {
+    regular = {
+      left = "<C-w>h",
+      right = "<C-w>l",
+      up = "<C-w>k",
+      down = "<C-w>j",
+    },
+    terminal = {
+      left = "<C-\\><C-N><C-w>h",
+      right = "<C-\\><C-N><C-w>l",
+      up = "<C-\\><C-N><C-w>k",
+      down = "<C-\\><C-N><C-w>j",
+    },
+  }
+  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+  buftype = buftype == "terminal" and "terminal" or "regular"
+
+  vim.api.nvim_input(directions[buftype][direction])
 end
 
 map('n', '<Space>', '', {})
@@ -76,6 +85,11 @@ map('n', '<A-h>', function () go_to_split('left') end, options)
 map('n', '<A-j>', function () go_to_split('down') end, options)
 map('n', '<A-k>', function () go_to_split('up') end, options)
 map('n', '<A-l>', function () go_to_split('right') end, options)
+
+map('t', '<A-h>', function () go_to_split('left') end, options)
+map('t', '<A-j>', function () go_to_split('down') end, options)
+map('t', '<A-k>', function () go_to_split('up') end, options)
+map('t', '<A-l>', function () go_to_split('right') end, options)
 
 map('n', '<Leader>z', toggle_zoom_split, options)
 
