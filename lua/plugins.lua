@@ -44,7 +44,6 @@ require("lazy").setup({
 
 	-- (v)ui
 	'nvim-treesitter/nvim-treesitter',
-	'hoob3rt/lualine.nvim',
 	'lewis6991/gitsigns.nvim',
 	"lukas-reineke/indent-blankline.nvim",
 	"onsails/lspkind.nvim",
