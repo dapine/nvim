@@ -1,5 +1,21 @@
 -- thx to https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html
 
+local M = {}
+
+-- local default_settings = {
+--   use_nerd_fonts = false,
+-- }
+
+Settings = {
+  use_nerd_fonts = false,
+}
+
+function M.setup(user_settings)
+  local us = user_settings == nil and {} or user_settings
+  Settings = vim.tbl_deep_extend("force", Settings, us)
+  vim.cmd([[set statusline=%!v:lua.Statusline.active()]])
+end
+
 local modes = {
   ["n"] = "NORMAL",
   ["no"] = "NORMAL",
@@ -82,17 +98,22 @@ local function lsp()
   local hints = ""
   local info = ""
 
+  local error_label = Settings.use_nerd_fonts and " " or "E: "
+  local warning_label = Settings.use_nerd_fonts and " " or "W: "
+  local hint_label = Settings.use_nerd_fonts and " " or "H: "
+  local info_label = Settings.use_nerd_fonts and " " or "I: "
+
   if count["errors"] ~= 0 then
-    errors = " %#LspDiagnosticsSignError#❌ " .. count["errors"]
+    errors = table.concat({" %#LspDiagnosticsSignError# ", error_label, count["errors"]})
   end
   if count["warnings"] ~= 0 then
-    warnings = " %#LspDiagnosticsSignWarning#⚠️ " .. count["warnings"]
+    warnings = table.concat({" %#LspDiagnosticsSignWarning# ", warning_label, count["warnings"]})
   end
   if count["hints"] ~= 0 then
-    hints = " %#LspDiagnosticsSignHint#💡 " .. count["hints"]
+    hints = table.concat({" %#LspDiagnosticsSignHint# ", hint_label, count["hints"]})
   end
   if count["info"] ~= 0 then
-    info = " %#LspDiagnosticsSignInformation#ℹ️ " .. count["info"]
+    info = table.concat({" %#LspDiagnosticsSignInformation# ", info_label, count["info"]})
   end
 
   return errors .. warnings .. hints .. info .. "%#Normal#"
@@ -125,12 +146,6 @@ Statusline.active = function()
     filetype(),
     lineinfo(),
   }
-end
-
-local M = {}
-
-function M.setup()
-  vim.cmd([[set statusline=%!v:lua.Statusline.active()]])
 end
 
 return M
