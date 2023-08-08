@@ -41,7 +41,8 @@ o.showmatch = true
 o.background = theme.background
 o.number = true
 o.relativenumber = true
-o.ch = 0
+o.ch = 1
+o.showmode = false
 vim.cmd("colorscheme " .. theme.colorscheme)
 
 vim.api.nvim_create_autocmd("FileType", {
