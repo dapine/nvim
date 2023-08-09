@@ -55,6 +55,7 @@ require("lazy").setup({
 	},
 	"luukvbaal/nnn.nvim",
   'chrisgrieser/nvim-spider',
+  { 'ThePrimeagen/harpoon', lazy = false },
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },

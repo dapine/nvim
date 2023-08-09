@@ -38,10 +38,8 @@ map('n', '=', '<C-b>zz', options)
 
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
 map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
+map('n', '<Leader>b', require('telescope.builtin').buffers, options)
 map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
-
-map('n', '<Tab>', ':bnext<cr>', options)
-map('n', '<Leader><Tab>', ':bprevious<cr>', options)
 
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
@@ -59,6 +57,14 @@ map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc =
 map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 map({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+-- harpoon
+map("n", "<leader>m", require("harpoon.mark").add_file, options)
+map("n", "<leader>ml", require("harpoon.ui").toggle_quick_menu, options)
+map("n", "<leader>u", function() require("harpoon.ui").nav_file(1) end, options)
+map("n", "<leader>i", function() require("harpoon.ui").nav_file(2) end, options)
+map("n", "<leader>o", function() require("harpoon.ui").nav_file(3) end, options)
+map("n", "<leader>p", function() require("harpoon.ui").nav_file(4) end, options)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LspKeymaps', {}),
