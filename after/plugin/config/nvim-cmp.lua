@@ -6,7 +6,7 @@ local theme = require('theme')
 local luasnip = require("luasnip")
 
 local lspkind_format = {
-        mode = 'text'
+  mode = 'text'
 }
 
 local has_words_before = function()
@@ -16,68 +16,68 @@ local has_words_before = function()
 end
 
 if theme.use_nerd_font then
-        lspkind_format.mode = 'symbol_text'
+  lspkind_format.mode = 'symbol_text'
 end
 
 cmp.setup {
-        snippet = {
-                expand = function(args)
-                        require('luasnip').lsp_expand(args.body)
-                end,
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
 
-        },
+  },
 
-        window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
 
-        },
+  },
 
-        view = {
-                entries = { name = "custom", selection_order = "near_cursor" }
-        },
+  view = {
+    entries = { name = "custom", selection_order = "near_cursor" }
+  },
 
-        formatting = {
-                format = lspkind.cmp_format(lspkind_format)
-        },
+  formatting = {
+    format = lspkind.cmp_format(lspkind_format)
+  },
 
-        mapping = cmp.mapping.preset.insert({
-                ['<A-p>'] = cmp.mapping(function(fallback)
-               		if cmp.visible() then
-										cmp.select_prev_item()
-									elseif luasnip.jumpable(-1) then
-										luasnip.jump(-1)
-									else
-										fallback()
-               		end
-                end, { "i", "s" }),
-                ['<A-n>'] = cmp.mapping(function(fallback)
-               		if cmp.visible() then
-               			cmp.select_next_item()
-									elseif luasnip.expand_or_jumpable() then
-										luasnip.expand_or_jump()
-									elseif has_words_before() then
-										cmp.complete()
-									else
-										fallback()
-               		end
-                end, { "i", "s" }),
+  mapping = cmp.mapping.preset.insert({
+    ['<A-p>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ['<A-n>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
 
-                ['<A-d>'] = cmp.mapping.scroll_docs(-4),
-                ['<A-f>'] = cmp.mapping.scroll_docs(4),
-                ['<A-Space>'] = cmp.mapping.complete(),
-                ['<A-e>'] = cmp.mapping.close(),
-                ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        }),
+    ['<A-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<A-f>'] = cmp.mapping.scroll_docs(4),
+    ['<A-Space>'] = cmp.mapping.complete(),
+    ['<A-e>'] = cmp.mapping.close(),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
 
-        sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
-        }, {
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
 
-                { name = 'buffer' },
-        }),
+    { name = 'buffer' },
+  }),
 }
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
