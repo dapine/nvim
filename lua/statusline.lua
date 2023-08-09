@@ -130,6 +130,16 @@ local function lineinfo()
   return " %P %l:%c "
 end
 
+local function git_branch()
+  local branch_name = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  local branch_label = Settings.use_nerd_fonts and " " or ""
+  if string.len(branch_name) > 0 then
+    return string.format(" %s%s ", branch_label, branch_name)
+  end
+
+  return ""
+end
+
 Statusline = {}
 
 Statusline.active = function()
@@ -137,6 +147,8 @@ Statusline.active = function()
     "%#Statusline#",
     update_mode_colors(),
     mode(),
+    "%#StatuslineAccent#",
+    git_branch(),
     "%#Normal# ",
     filepath(),
     filename(),
