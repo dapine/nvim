@@ -41,6 +41,10 @@ map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
 map('n', '<Leader>b', require('telescope.builtin').buffers, options)
 map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
 
+map('n', '<Leader>vs', require('telescope.builtin').git_status, options)
+map('n', '<Leader>vc', require('telescope.builtin').git_commits, options)
+map('n', '<Leader>vb', require('telescope.builtin').git_branches, options)
+
 -- Acme-like go to next word occurrence.
 -- Maybe add a plumbing mechanism in the future?
 local function search()
