@@ -5,5 +5,11 @@ require'nvim-treesitter.configs'.setup {
 										 	 "yaml" },
   highlight = {
     enable = true,
-  }
+  },
+  indent = {
+    enable = true,
+  },
+  playground = {
+    enable = true,
+  },
 }

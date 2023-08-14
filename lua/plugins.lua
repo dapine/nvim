@@ -43,7 +43,8 @@ require("lazy").setup({
 	},
 
 	-- (v)ui
-	'nvim-treesitter/nvim-treesitter',
+  { 'nvim-treesitter/nvim-treesitter', lazy = false },
+  { 'nvim-treesitter/playground', lazy = false },
 	'lewis6991/gitsigns.nvim',
 	"lukas-reineke/indent-blankline.nvim",
 	"onsails/lspkind.nvim",
