@@ -14,3 +14,12 @@ ls.add_snippets("javascript", {
 ls.filetype_extend("typescript", {"javascript"})
 ls.filetype_extend("javascriptreact", {"javascript"})
 ls.filetype_extend("typescriptreact", {"javascript"})
+
+ls.add_snippets("go", {
+	ls.parser.parse_snippet('herr', 'if err != nil {\
+    log.${1}\
+}'),
+	ls.parser.parse_snippet('ierr', 'if err := ${1}; err != nil {\
+    log.${2}\
+}')
+})
