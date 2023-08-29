@@ -74,4 +74,56 @@ function M.setup()
   vim.keymap.set('n', default_settings.vertical_terminal, function () vim.api.nvim_command('Vterm') end, {})
 end
 
+-- e.g.
+-- window = vim.api.nvim_tabpage_get_win(0)
+-- window_list = vim.api.nvim_tabpage_list_wins(0)
+local function get_surroundings(window, window_list)
+  local surroundings = {
+    top = nil,
+    right = nil,
+    bottom = nil,
+    left = nil,
+  }
+
+  local current_window_position = vim.api.nvim_win_get_position(window)
+  local current_window_x, current_window_y = current_window_position[1], current_window_position[2]
+
+  for _, win in ipairs(window_list) do
+    local win_pos = vim.api.nvim_win_get_position(win)
+    local x, y = win_pos[1], win_pos[2]
+
+    if (current_window_y < y) then
+      surroundings.right = win
+    elseif (current_window_y > y) then
+      surroundings.left = win
+    elseif (current_window_x > x) then
+      surroundings.top = win
+    elseif (current_window_x < x) then
+      surroundings.bottom = win
+    end
+  end
+
+  return surroundings
+end
+
+local function has_top(current_window, window_list)
+  local s = get_surroundings(current_window, window_list)
+  return s.top ~= nil and true or false
+end
+
+local function has_right(current_window, window_list)
+  local s = get_surroundings(current_window, window_list)
+  return s.right ~= nil and true or false
+end
+
+local function has_bottom(current_window, window_list)
+  local s = get_surroundings(current_window, window_list)
+  return s.bottom ~= nil and true or false
+end
+
+local function has_left(current_window, window_list)
+  local s = get_surroundings(current_window, window_list)
+  return s.left ~= nil and true or false
+end
+
 return M
