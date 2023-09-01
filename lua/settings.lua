@@ -26,6 +26,7 @@ o.wildignore = [[*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.hi,*.o,*/node_modules/*,*/deps
 o.splitbelow = true
 o.splitright = true
 o.hidden = true
+o.clipboard = "unnamedplus"
 
 vim.o.completeopt = "menuone,noselect"
 
