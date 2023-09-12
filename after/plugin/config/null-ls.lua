@@ -9,7 +9,6 @@ null_ls.setup({
     diagnostics.checkstyle.with({
       extra_args = { "-c", "/google_checks.xml" },
     }),
-    formatting.google_java_format,
     code_actions.eslint_d,
     diagnostics.eslint_d,
     formatting.prettierd,
