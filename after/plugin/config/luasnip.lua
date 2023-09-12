@@ -1,7 +1,16 @@
 local ls = require("luasnip")
 
 ls.add_snippets("java", {
-	ls.parser.parse_snippet('sout', 'System.out.println(${0});')
+	ls.parser.parse_snippet('sout', 'System.out.println(${0});'),
+	ls.parser.parse_snippet('javadoc', '/**\
+ * ${1}\
+ *\
+ * @param ${2} \
+ * @return ${3} \
+ * @throws ${4} \
+ */'),
+	ls.parser.parse_snippet('main', 'public static void main(String[] args) {${1}}'),
+	ls.parser.parse_snippet('au', '@Autowired'),
 })
 
 ls.add_snippets("javascript", {
