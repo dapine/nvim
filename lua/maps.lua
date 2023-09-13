@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local spider = require('spider')
 
 local function close()
   local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
@@ -57,10 +58,10 @@ map('n', '<3-RightMouse>', search, options)
 map('n', '<4-RightMouse>', search, options)
 
 -- nvim-spider
-map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-map({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+map({"n", "o", "x"}, "w", function() spider.motion('w') end, { desc = "Spider-w" })
+map({"n", "o", "x"}, "e", function() spider.motion('e') end, { desc = "Spider-e" })
+map({"n", "o", "x"}, "b", function() spider.motion('b') end, { desc = "Spider-b" })
+map({"n", "o", "x"}, "ge", function() spider.motion('ge') end, { desc = "Spider-ge" })
 
 -- harpoon
 map("n", "<leader>m", require("harpoon.mark").add_file, options)
