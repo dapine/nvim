@@ -41,6 +41,7 @@ require("lazy").setup({
 			require('nvim-surround').setup()
 		end
 	},
+  { 'echasnovski/mini.nvim', version = false },
 
 	-- (v)ui
   { 'nvim-treesitter/nvim-treesitter', lazy = false },
