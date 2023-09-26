@@ -40,7 +40,7 @@ map('n', '=', '<C-b>zz', options)
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
 map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
 map('n', '<Leader>b', require('telescope.builtin').buffers, options)
-map('n', '<Leader>fb', '<cmd>NnnPicker %:p:h<cr>', options)
+map('n', '<Leader>fb', function () MiniFiles.open() end, options)
 
 map('n', '<Leader>vs', require('telescope.builtin').git_status, options)
 map('n', '<Leader>vc', require('telescope.builtin').git_commits, options)
