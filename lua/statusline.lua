@@ -72,6 +72,10 @@ local function filepath()
   return string.format(" %%<%s/", fpath)
 end
 
+local function file_modified()
+  return "%m"
+end
+
 local function filename()
   local fname = vim.fn.expand "%:t"
   if fname == "" then
@@ -150,6 +154,7 @@ Statusline.active = function()
     "%#StatuslineAccent#",
     git_branch(),
     "%#Normal# ",
+    file_modified(),
     filepath(),
     filename(),
     "%#Normal#",
