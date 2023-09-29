@@ -1,4 +1,11 @@
-require("indent_blankline").setup {
-	show_current_context = true,
-	show_trailing_blankline_indent = false,
-}
+require("ibl").setup({
+  indent = {
+    char = '┊',
+    smart_indent_cap = true,
+  },
+  scope = {
+    enabled = true,
+    show_start = false,
+    show_end = false,
+  },
+})
