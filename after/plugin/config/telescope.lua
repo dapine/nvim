@@ -17,5 +17,8 @@ require('telescope').setup{
     buffers = {
       initial_mode = "normal"
     },
+    diagnostics = {
+      initial_mode = "normal"
+    },
   },
 }
