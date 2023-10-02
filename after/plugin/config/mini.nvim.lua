@@ -1,4 +1,19 @@
-require('mini.files').setup()
+local theme = require('theme')
+
+local my_prefix = function(fs_entry)
+  if fs_entry.fs_type == 'directory' then
+    return ' ', 'MiniFilesDirectory'
+  elseif fs_entry.fs_type == 'file' then
+    return ' ', 'MiniFilesFile'
+  end
+  return MiniFiles.default_prefix(fs_entry)
+end
+
+require('mini.files').setup({
+  content = {
+    prefix = theme.use_nerd_font and my_prefix or function() end,
+  },
+})
 require('mini.trailspace').setup()
 
 local files_set_cwd = function(path)
