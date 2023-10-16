@@ -40,6 +40,7 @@ map('v', '-', '<C-f>zz', options)
 map('v', '=', '<C-b>zz', options)
 
 map('n', '<BS>', '<C-o>', options)
+map('n', '<A-BS>', '<C-i>', options)
 
 map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
 map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
