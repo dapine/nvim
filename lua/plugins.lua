@@ -32,7 +32,9 @@ local opts = {
 
 require("lazy").setup({
 	-- essential
+  -- TODO: use mini.comment instead of this
 	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end, lazy = false },
+  -- TODO: use mini.surround instead of this
 	{
 		'kylechui/nvim-surround',
 		version = '*',
@@ -55,15 +57,11 @@ require("lazy").setup({
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
-	"luukvbaal/nnn.nvim",
   'chrisgrieser/nvim-spider',
   { 'ThePrimeagen/harpoon', lazy = false },
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=true },
-	'elianiva/gruvy.nvim',
-	'dapine/gruvbox-minimal',
-	'folke/tokyonight.nvim',
 	{ "catppuccin/nvim", name = "catppuccin" },
 
 	-- lsp, snippets, completion
