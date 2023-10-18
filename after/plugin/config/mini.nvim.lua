@@ -1,4 +1,5 @@
 local theme = require('theme')
+local map = vim.keymap.set
 
 local my_prefix = function(fs_entry)
   if fs_entry.fs_type == 'directory' then
@@ -52,3 +53,5 @@ vim.api.nvim_create_autocmd('User', {
     map_split(buf_id, '|', 'belowright vertical')
   end,
 })
+
+map('n', '<Leader>fb', function () MiniFiles.open() end, options)

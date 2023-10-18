@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local spider = require('spider')
 
 local function close()
   local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
@@ -41,59 +40,3 @@ map('v', '=', '<C-b>zz', options)
 
 map('n', '<BS>', '<C-o>', options)
 map('n', '<A-BS>', '<C-i>', options)
-
-map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
-map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
-map('n', '<Leader>b', require('telescope.builtin').buffers, options)
-map('n', '<Leader>fb', function () MiniFiles.open() end, options)
-
-map('n', '<Leader>vs', require('telescope.builtin').git_status, options)
-map('n', '<Leader>vc', require('telescope.builtin').git_commits, options)
-map('n', '<Leader>vb', require('telescope.builtin').git_branches, options)
-
--- nvim-spider
-map({"n", "o", "x"}, "w", function() spider.motion('w') end, { desc = "Spider-w" })
-map({"n", "o", "x"}, "e", function() spider.motion('e') end, { desc = "Spider-e" })
-map({"n", "o", "x"}, "b", function() spider.motion('b') end, { desc = "Spider-b" })
-map({"n", "o", "x"}, "ge", function() spider.motion('ge') end, { desc = "Spider-ge" })
-
--- harpoon
-map("n", "<leader>m", require("harpoon.mark").add_file, options)
-map("n", "<leader>ml", require("harpoon.ui").toggle_quick_menu, options)
-map("n", "<leader>u", function() require("harpoon.ui").nav_file(1) end, options)
-map("n", "<leader>i", function() require("harpoon.ui").nav_file(2) end, options)
-map("n", "<leader>o", function() require("harpoon.ui").nav_file(3) end, options)
-map("n", "<leader>p", function() require("harpoon.ui").nav_file(4) end, options)
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('LspKeymaps', {}),
-  callback = function(args)
-    vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-    local opts = { buffer = args.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
-		vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
-		vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-		vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<leader>d', require('telescope.builtin').diagnostics, opts)
-
-    if client.server_capabilities.signatureHelpProvider then
-      map('n', '<Leader>s', vim.lsp.buf.signature_help, options)
-    end
-  end,
-})
