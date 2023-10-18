@@ -11,21 +11,16 @@ o.autoindent = true
 o.smartindent = true
 
 o.backspace = "indent,eol,start"
-o.backup = false
-o.writebackup = false
 o.swapfile = false
 o.scrolloff = 10
 o.sidescrolloff = 5
 o.encoding = "utf-8"
-o.hlsearch = true
-o.incsearch = true
 o.smartcase = true
 o.lazyredraw = true
 o.laststatus = 3
 o.wildignore = [[*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.hi,*.o,*/node_modules/*,*/deps/*,*/_build/*,*.cmi,*cmo]]
 o.splitbelow = true
 o.splitright = true
-o.hidden = true
 o.clipboard = "unnamedplus"
 
 vim.o.completeopt = "menuone,noselect"
