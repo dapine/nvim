@@ -6,9 +6,6 @@ local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
   sources = {
-    diagnostics.checkstyle.with({
-      extra_args = { "-c", "/google_checks.xml" },
-    }),
     code_actions.eslint_d,
     diagnostics.eslint_d,
     formatting.prettierd,
