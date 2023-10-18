@@ -51,17 +51,6 @@ map('n', '<Leader>vs', require('telescope.builtin').git_status, options)
 map('n', '<Leader>vc', require('telescope.builtin').git_commits, options)
 map('n', '<Leader>vb', require('telescope.builtin').git_branches, options)
 
--- Acme-like go to next word occurrence.
--- Maybe add a plumbing mechanism in the future?
-local function search()
-  vim.api.nvim_input('*')
-end
-
-map('n', '<RightMouse>', search, options)
-map('n', '<2-RightMouse>', search, options)
-map('n', '<3-RightMouse>', search, options)
-map('n', '<4-RightMouse>', search, options)
-
 -- nvim-spider
 map({"n", "o", "x"}, "w", function() spider.motion('w') end, { desc = "Spider-w" })
 map({"n", "o", "x"}, "e", function() spider.motion('e') end, { desc = "Spider-e" })
