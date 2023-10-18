@@ -1,4 +1,3 @@
-local theme = require('theme')
 local map = vim.keymap.set
 
 local my_prefix = function(fs_entry)
@@ -12,7 +11,7 @@ end
 
 require('mini.files').setup({
   content = {
-    prefix = theme.use_nerd_font and my_prefix or function() end,
+    prefix = vim.g.my_use_nerd_font and my_prefix or function() end,
   },
 })
 require('mini.trailspace').setup()
