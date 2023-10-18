@@ -97,7 +97,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-
-if vim.g.neovide then
-  require("splits").setup()
-end
