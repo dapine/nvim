@@ -15,6 +15,12 @@ require('mini.files').setup({
   },
 })
 require('mini.trailspace').setup()
+require('mini.comment').setup()
+require('mini.surround').setup({
+  mappings = {
+    add = 'S'
+  }
+})
 
 local files_set_cwd = function(path)
   local cur_entry_path = MiniFiles.get_fs_entry().path

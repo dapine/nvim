@@ -32,18 +32,7 @@ local opts = {
 
 require("lazy").setup({
 	-- essential
-  -- TODO: use mini.comment instead of this
-	{ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end, lazy = false },
-  -- TODO: use mini.surround instead of this
-	{
-		'kylechui/nvim-surround',
-		version = '*',
-		event = 'VeryLazy',
-		config = function()
-			require('nvim-surround').setup()
-		end
-	},
-  { 'echasnovski/mini.nvim', version = false },
+	{ 'echasnovski/mini.nvim', version = false },
 
 	-- (v)ui
   { 'nvim-treesitter/nvim-treesitter', lazy = false },
@@ -61,7 +50,7 @@ require("lazy").setup({
   { 'ThePrimeagen/harpoon', lazy = false },
 
 	-- colorschemes
-	{ 'ishan9299/modus-theme-vim', lazy=true },
+	{ 'ishan9299/modus-theme-vim', lazy=false },
 	{ "catppuccin/nvim", name = "catppuccin" },
 
 	-- lsp, snippets, completion

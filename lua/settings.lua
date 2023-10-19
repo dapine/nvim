@@ -2,8 +2,6 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 
-local theme = require "theme"
-
 o.shiftwidth = 4
 o.tabstop = 4
 o.expandtab = true
