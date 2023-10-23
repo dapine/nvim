@@ -4,7 +4,8 @@ local map = vim.keymap.set
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" },
-		path_display = { "smart" },
+		path_display = { "tail" },
+    prompt_prefix = '',
     mappings = {
       i = {
         ["<C-u>"] = false,
@@ -14,6 +15,15 @@ require('telescope').setup{
         ["q"] = actions.close,
       },
     },
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        height = 0.9,
+        preview_cutoff = 120,
+        prompt_position = "bottom",
+        width = 0.9,
+      },
+    },
   },
   pickers = {
     buffers = {
@@ -21,6 +31,11 @@ require('telescope').setup{
     },
     diagnostics = {
       initial_mode = "normal"
+    },
+    lsp_references = {
+      initial_mode = "normal",
+      include_declaration = false,
+      show_line = false,
     },
   },
 }

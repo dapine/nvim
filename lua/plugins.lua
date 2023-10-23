@@ -44,7 +44,7 @@ require("lazy").setup({
 	-- navigation
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		dependencies = { 'nvim-lua/plenary.nvim' }
+		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' }
 	},
   'chrisgrieser/nvim-spider',
   { 'ThePrimeagen/harpoon', lazy = false },
