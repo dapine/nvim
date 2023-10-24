@@ -5,7 +5,7 @@ require('telescope').setup{
   defaults = {
     file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" },
 		path_display = { "tail" },
-    prompt_prefix = '',
+    prompt_prefix = vim.g.my_use_nerd_font and ' ' or '',
     mappings = {
       i = {
         ["<C-u>"] = false,
@@ -22,6 +22,7 @@ require('telescope').setup{
         preview_cutoff = 120,
         prompt_position = "bottom",
         width = 0.9,
+        preview_width = 0.6,
       },
     },
   },
@@ -40,6 +41,6 @@ require('telescope').setup{
   },
 }
 
-map('n', '<Leader>ff', require('telescope.builtin').find_files, options)
-map('n', '<Leader>gr', require('telescope.builtin').live_grep, options)
-map('n', '<Leader>b', require('telescope.builtin').buffers, options)
+map('n', '<Leader>ff', require('telescope.builtin').find_files, { noremap = true })
+map('n', '<Leader>gr', require('telescope.builtin').live_grep, { noremap = true })
+map('n', '<Leader>b', require('telescope.builtin').buffers, { noremap = true })
