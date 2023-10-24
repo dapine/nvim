@@ -39,7 +39,7 @@ require("lazy").setup({
   { 'nvim-treesitter/playground', lazy = false },
 	'lewis6991/gitsigns.nvim',
 	"lukas-reineke/indent-blankline.nvim",
-	"onsails/lspkind.nvim",
+	{ "onsails/lspkind.nvim", config = function() require('lspkind').init() end },
 
 	-- navigation
 	{
@@ -66,7 +66,7 @@ require("lazy").setup({
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
 	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
-	'windwp/nvim-autopairs',
+	{ 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
 	{ 'saadparwaiz1/cmp_luasnip', lazy = false },
   'jose-elias-alvarez/null-ls.nvim',
 }, opts)
