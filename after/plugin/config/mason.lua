@@ -12,6 +12,22 @@ require("mason-lspconfig").setup_handlers {
 	["lua_ls"] = function()
 		-- use ftplugin/lua.lua
 	end,
+  ["tsserver"] = function()
+    local node_root_markers = { "package.json", "package-lock.json" }
+    local is_node = vim.fs.dirname(vim.fs.find(node_root_markers, { upward = true })[1]) ~= nil
+
+    if is_node then
+      require('lspconfig').tsserver.setup({})
+    end
+  end,
+  ["denols"] = function()
+    local deno_root_markers = { "deno.json", "deno.lock" }
+    local is_deno = vim.fs.dirname(vim.fs.find(deno_root_markers, { upward = true })[1]) ~= nil
+
+    if is_deno then
+      require('lspconfig').denols.setup({})
+    end
+  end,
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
