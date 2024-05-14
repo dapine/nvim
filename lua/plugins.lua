@@ -68,5 +68,5 @@ require("lazy").setup({
 	{ "mfussenegger/nvim-jdtls", ft = { "java" } },
 	{ 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
 	{ 'saadparwaiz1/cmp_luasnip', lazy = false },
-  'jose-elias-alvarez/null-ls.nvim',
+  'stevearc/conform.nvim',
 }, opts)
