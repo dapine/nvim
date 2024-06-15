@@ -1,7 +1,6 @@
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
-    elixir = { "mix" },
     go = { "goimports-reviser", "golines" },
     rust = { "rustfmt" },
   },

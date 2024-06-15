@@ -69,4 +69,12 @@ require("lazy").setup({
 	{ 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
 	{ 'saadparwaiz1/cmp_luasnip', lazy = false },
   'stevearc/conform.nvim',
+
+  -- languages
+  {
+    "elixir-tools/elixir-tools.nvim",
+    version = "*",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }, opts)
