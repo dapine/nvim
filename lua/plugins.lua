@@ -68,6 +68,7 @@ require("lazy").setup({
 	{ 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
 	{ 'saadparwaiz1/cmp_luasnip', lazy = false },
   'stevearc/conform.nvim',
+  { 'RRethy/nvim-treesitter-endwise', lazy = false },
 
   -- languages
   {

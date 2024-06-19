@@ -1,8 +1,4 @@
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "rust", "lua", "javascript", "typescript", 
-											 "python", "bash", "html", "css",
-										 	 "elixir", "java", "json", "toml",
-										 	 "yaml" },
   highlight = {
     enable = true,
   },
@@ -11,5 +7,25 @@ require'nvim-treesitter.configs'.setup {
   },
   playground = {
     enable = true,
+  },
+  endwise = {
+    enable = true,
+  },
+  ensure_installed = {
+    "rust",
+    "lua",
+    "javascript",
+    "typescript",
+    "python",
+    "bash",
+    "html",
+    "css",
+    "elixir",
+    "eex",
+    "heex",
+    "java",
+    "json",
+    "toml",
+    "yaml",
   },
 }
