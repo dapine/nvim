@@ -21,6 +21,12 @@ require('mini.surround').setup({
     add = 'S'
   }
 })
+require('mini.indentscope').setup({
+  draw = {
+    animation = require('mini.indentscope').gen_animation.none()
+  },
+  symbol = '┊',
+})
 
 local files_set_cwd = function(path)
   local cur_entry_path = MiniFiles.get_fs_entry().path
