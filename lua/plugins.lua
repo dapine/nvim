@@ -36,7 +36,6 @@ require("lazy").setup({
 
 	-- (v)ui
   { 'nvim-treesitter/nvim-treesitter', lazy = false },
-  { 'nvim-treesitter/playground', lazy = false },
 	'lewis6991/gitsigns.nvim',
 	{ "onsails/lspkind.nvim", config = function() require('lspkind').init() end },
 
