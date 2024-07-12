@@ -15,7 +15,6 @@ require('mini.files').setup({
   },
 })
 require('mini.trailspace').setup()
-require('mini.comment').setup()
 require('mini.surround').setup({
   mappings = {
     add = 'S'
@@ -65,4 +64,4 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
-map('n', '<Leader>fb', function () MiniFiles.open() end, options)
+map('n', '<Leader>fb', function() MiniFiles.open() end, options)
