@@ -37,12 +37,12 @@ o.showmode = false
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "typescript",
-              "javascriptreact", "typescriptreact",
-              "svelte",
-              "html", "xml",
-              "elixir",
-              "lua",
-            },
+    "javascriptreact", "typescriptreact",
+    "svelte",
+    "html", "xml",
+    "elixir",
+    "lua",
+  },
   command = "setlocal shiftwidth=2 tabstop=2",
 })
 
@@ -68,19 +68,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	update_in_insert = false,
+  virtual_text = false,
+  signs = true,
+  update_in_insert = false,
 })
-
-vim.api.nvim_create_user_command('Vterm', function ()
-  vim.api.nvim_command('vsplit')
-  vim.api.nvim_command('terminal')
-end, {})
-
-vim.api.nvim_create_user_command('Hterm', function ()
-  vim.api.nvim_command('split')
-  vim.api.nvim_command('terminal')
-end, {})
-
-vim.api.nvim_create_autocmd("TermOpen", { command="setlocal nonumber norelativenumber" })
