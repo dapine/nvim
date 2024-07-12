@@ -3,15 +3,15 @@ require("mason-lspconfig").setup {}
 local map = vim.keymap.set
 
 require("mason-lspconfig").setup_handlers {
-	function (server_name)
-		require("lspconfig")[server_name].setup {}
-	end,
-	["jdtls"] = function()
-		-- use ftplugin/java.lua
-	end,
-	["lua_ls"] = function()
-		-- use ftplugin/lua.lua
-	end,
+  function(server_name)
+    require("lspconfig")[server_name].setup {}
+  end,
+  ["jdtls"] = function()
+    -- use ftplugin/java.lua
+  end,
+  ["lua_ls"] = function()
+    -- use ftplugin/lua.lua
+  end,
   ["tsserver"] = function()
     local node_root_markers = { "package.json", "package-lock.json" }
     local is_node = vim.fs.dirname(vim.fs.find(node_root_markers, { upward = true })[1]) ~= nil
@@ -52,10 +52,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '<leader>rn', vim.lsp.buf.rename, opts)
     map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     map('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
-		vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
-		map('n', '[d', vim.diagnostic.goto_prev, opts)
-		map('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
+    map('n', '[d', vim.diagnostic.goto_prev, opts)
+    map('n', ']d', vim.diagnostic.goto_next, opts)
     map('n', '<leader>d', require('telescope.builtin').diagnostics, opts)
+    map('n', '<leader>h', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, opts)
 
     if client.server_capabilities.signatureHelpProvider then
       map('n', '<Leader>s', vim.lsp.buf.signature_help, { noremap = true })
