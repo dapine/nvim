@@ -11,7 +11,7 @@ end
 
 require('mini.files').setup({
   content = {
-    prefix = vim.g.my_use_nerd_font and my_prefix or function() end,
+    prefix = my_prefix,
   },
 })
 require('mini.trailspace').setup()

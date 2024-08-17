@@ -1,11 +1,11 @@
 local actions = require("telescope.actions")
 local map = vim.keymap.set
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" },
-		path_display = { "tail" },
-    prompt_prefix = vim.g.my_use_nerd_font and ' ' or '',
+    path_display = { "tail" },
+    prompt_prefix = ' ',
     mappings = {
       i = {
         ["<C-u>"] = false,
