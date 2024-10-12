@@ -49,7 +49,7 @@ require("lazy").setup({
 
 	-- colorschemes
 	{ 'ishan9299/modus-theme-vim', lazy=false },
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "catppuccin/nvim", name = "catppuccin", lazy=false },
 
 	-- lsp, snippets, completion
 	'neovim/nvim-lspconfig',
