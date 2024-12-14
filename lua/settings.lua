@@ -41,14 +41,18 @@ vim.opt.termguicolors = true
 vim.cmd("colorscheme " .. colorscheme)
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript",
-    "javascriptreact", "typescriptreact",
-    "svelte",
-    "html", "xml",
-    "elixir",
-    "lua",
-  },
-  command = "setlocal shiftwidth=2 tabstop=2",
+	pattern = {
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"svelte",
+		"html",
+		"xml",
+		"elixir",
+		"lua",
+	},
+	command = "setlocal shiftwidth=2 tabstop=2",
 })
 
 vim.g.loaded_perl_provider = 0
@@ -59,21 +63,21 @@ vim.g.loaded_python3_provider = 0
 
 vim.o.updatetime = 200
 vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    local opts = {
-      focusable = false,
-      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-      border = 'rounded',
-      source = 'always',
-      prefix = ' ',
-      scope = 'cursor',
-    }
-    vim.diagnostic.open_float(nil, opts)
-  end
+	callback = function()
+		local opts = {
+			focusable = false,
+			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+			border = "rounded",
+			source = "always",
+			prefix = " ",
+			scope = "cursor",
+		}
+		vim.diagnostic.open_float(nil, opts)
+	end,
 })
 
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  update_in_insert = false,
+	virtual_text = false,
+	signs = true,
+	update_in_insert = false,
 })

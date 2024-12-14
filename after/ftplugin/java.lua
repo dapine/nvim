@@ -56,7 +56,7 @@ local config = {
 			},
 			format = {
 				enabled = true,
-			}
+			},
 		},
 		signatureHelp = { enabled = true },
 		completion = {
@@ -70,9 +70,9 @@ local config = {
 				"org.mockito.Mockito.*",
 			},
 		},
-	}
+	},
 }
 
-require('jdtls').start_or_attach(config)
+require("jdtls").start_or_attach(config)
 
-vim.keymap.set('n', '<leader>co', require('jdtls').organize_imports, { noremap = true })
+vim.keymap.set("n", "<leader>co", require("jdtls").organize_imports, { noremap = true })
