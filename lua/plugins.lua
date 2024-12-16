@@ -43,6 +43,14 @@ require("lazy").setup({
 			require("lspkind").init()
 		end,
 	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
+		end,
+	},
 
 	-- navigation
 	{
