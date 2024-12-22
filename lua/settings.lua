@@ -2,9 +2,6 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 
-local colorscheme = os.getenv("NVIM_COLORSCHEME")
-colorscheme = colorscheme == nil and "default" or colorscheme
-
 o.shiftwidth = 4
 o.tabstop = 4
 o.expandtab = true
@@ -38,7 +35,7 @@ o.relativenumber = true
 o.ch = 1
 o.showmode = false
 vim.opt.termguicolors = true
-vim.cmd("colorscheme " .. colorscheme)
+vim.cmd("colorscheme modus_operandi")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
