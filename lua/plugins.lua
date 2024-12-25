@@ -60,6 +60,10 @@ require("lazy").setup({
 	},
 	"chrisgrieser/nvim-spider",
 	{ "ThePrimeagen/harpoon", lazy = false },
+	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 
 	-- colorschemes
 	{ "miikanissi/modus-themes.nvim", priority = 1000, lazy = false },
