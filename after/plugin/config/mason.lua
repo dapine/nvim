@@ -12,14 +12,6 @@ require("mason-lspconfig").setup_handlers({
 	["lua_ls"] = function()
 		-- use ftplugin/lua.lua
 	end,
-	["tsserver"] = function()
-		local node_root_markers = { "package.json", "package-lock.json" }
-		local is_node = vim.fs.dirname(vim.fs.find(node_root_markers, { upward = true })[1]) ~= nil
-
-		if is_node then
-			require("lspconfig").tsserver.setup({})
-		end
-	end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
