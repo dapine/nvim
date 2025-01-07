@@ -18,13 +18,14 @@ require("telescope").setup({
 		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
-				height = 0.9,
+				height = 0.8,
 				preview_cutoff = 120,
-				prompt_position = "bottom",
-				width = 0.9,
+				prompt_position = "top",
+				width = 0.8,
 				preview_width = 0.6,
 			},
 		},
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 	},
 	pickers = {
 		buffers = {
@@ -37,6 +38,22 @@ require("telescope").setup({
 			initial_mode = "normal",
 			include_declaration = false,
 			show_line = false,
+		},
+		find_files = {
+			prompt_title = "",
+			results_title = "",
+			previewer = false,
+			sorting_strategy = "ascending",
+			layout_config = {
+				height = 0.5,
+				width = 0.5,
+			},
+		},
+		live_grep = {
+			prompt_title = "",
+			results_title = "",
+			preview_title = "",
+			sorting_strategy = "ascending",
 		},
 	},
 })
