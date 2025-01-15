@@ -14,9 +14,6 @@ return {
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
 				end,
-				["jdtls"] = function()
-					-- use ftplugin/java.lua
-				end,
 				["lua_ls"] = function()
 					-- use ftplugin/lua.lua
 				end,
@@ -38,11 +35,6 @@ return {
 						require("telescope.builtin").lsp_references()
 					end, opts)
 					map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-					map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-					map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-					map("n", "<leader>wl", function()
-						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-					end, opts)
 					map("n", "<leader>D", vim.lsp.buf.type_definition, opts)
 					map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 					map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -50,8 +42,6 @@ return {
 					vim.api.nvim_create_user_command("Format", function()
 						vim.lsp.buf.format({ async = true })
 					end, {})
-					map("n", "[d", vim.diagnostic.goto_prev, opts)
-					map("n", "]d", vim.diagnostic.goto_next, opts)
 					map("n", "<leader>d", require("telescope.builtin").diagnostics, opts)
 					map("n", "<leader>h", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
