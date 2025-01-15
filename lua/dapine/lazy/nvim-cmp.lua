@@ -2,6 +2,12 @@ return {
 	{ "saadparwaiz1/cmp_luasnip", lazy = false },
 	{ "hrsh7th/cmp-nvim-lsp", lazy = false },
 	{
+		"onsails/lspkind.nvim",
+		config = function()
+			require("lspkind").init()
+		end,
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
