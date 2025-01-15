@@ -6,6 +6,21 @@ return {
 		local actions = require("telescope.actions")
 		local map = vim.keymap.set
 
+		-- horizontal_fused layout strategy
+		-- https://github.com/santhosh-tekuri/dotfiles/blob/16426fba8c7ef923f81fcf94aeb55fabb99b6140/nvim/lua/specs/telescope.lua#L33
+		local layout_strategies = require("telescope.pickers.layout_strategies")
+		layout_strategies.horizontal_fused = function(picker, max_columns, max_lines, layout_config)
+			local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
+			layout.prompt.title = ""
+			layout.results.title = ""
+			layout.preview.title = ""
+			layout.results.height = layout.results.height + 1
+			layout.results.borderchars = { "─", "│", "─", "│", "╭", "┬", "┤", "├" }
+			layout.preview.borderchars = { "─", "│", "─", " ", "─", "╮", "╯", "─" }
+			layout.prompt.borderchars = { "─", "│", "─", "│", "╭", "╮", "┴", "╰" }
+			return layout
+		end
+
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" },
@@ -20,17 +35,7 @@ return {
 						["q"] = actions.close,
 					},
 				},
-				layout_strategy = "horizontal",
-				layout_config = {
-					horizontal = {
-						height = 0.8,
-						preview_cutoff = 120,
-						prompt_position = "top",
-						width = 0.8,
-						preview_width = 0.6,
-					},
-				},
-				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+				layout_strategy = "horizontal_fused",
 			},
 			pickers = {
 				buffers = {
@@ -43,22 +48,6 @@ return {
 					initial_mode = "normal",
 					include_declaration = false,
 					show_line = false,
-				},
-				find_files = {
-					prompt_title = "",
-					results_title = "",
-					previewer = false,
-					sorting_strategy = "ascending",
-					layout_config = {
-						height = 0.5,
-						width = 0.5,
-					},
-				},
-				live_grep = {
-					prompt_title = "",
-					results_title = "",
-					preview_title = "",
-					sorting_strategy = "ascending",
 				},
 			},
 		})
