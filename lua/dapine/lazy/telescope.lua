@@ -13,11 +13,16 @@ return {
 			local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
 			layout.prompt.title = ""
 			layout.results.title = ""
-			layout.preview.title = ""
 			layout.results.height = layout.results.height + 1
-			layout.results.borderchars = { "─", "│", "─", "│", "╭", "┬", "┤", "├" }
-			layout.preview.borderchars = { "─", "│", "─", " ", "─", "╮", "╯", "─" }
-			layout.prompt.borderchars = { "─", "│", "─", "│", "╭", "╮", "┴", "╰" }
+			if layout.preview ~= false then
+				layout.preview.title = ""
+				layout.preview.borderchars = { "─", "│", "─", " ", "─", "┐", "┘", "─" }
+				layout.results.borderchars = { "─", "│", "─", "│", "┌", "┬", "┤", "├" }
+				layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┐", "┴", "└" }
+			else
+				layout.results.borderchars = { "─", "│", "─", "│", "┌", "┐", "┤", "├" }
+				layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
+			end
 			return layout
 		end
 
