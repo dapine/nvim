@@ -13,5 +13,6 @@ return {
 			},
 			symbol = "┊",
 		})
+		require("mini.pairs").setup({})
 	end,
 }
