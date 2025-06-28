@@ -17,6 +17,12 @@ vim.lsp.config["elixir-ls"] = {
 	filetypes = { "elixir" },
 }
 
+vim.lsp.config["gopls"] = {
+	cmd = { "gopls" },
+	root_markers = { "go.mod" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+}
+
 local function feedkeys(keys)
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
 end
@@ -78,7 +84,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.enable({ "lua-language-server", "elixir-ls" })
+vim.lsp.enable({ "lua-language-server", "elixir-ls", "gopls" })
 vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
