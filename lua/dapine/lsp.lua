@@ -80,6 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		vim.keymap.set("n", "grd", vim.lsp.buf.definition, {})
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, {})
 	end,
 })
