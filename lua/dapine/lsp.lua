@@ -11,10 +11,10 @@ vim.lsp.config["lua-language-server"] = {
 	},
 }
 
-vim.lsp.config["elixir-ls"] = {
-	cmd = { vim.fn.expand("$HOME/ls/elixir-ls/language_server.sh") },
-	root_markers = { "mix.exs" },
-	filetypes = { "elixir" },
+vim.lsp.config["expert"] = {
+	cmd = { vim.fn.expand("$HOME/.local/bin/expert") },
+	root_markers = { "mix.exs", ".git" },
+	filetypes = { "elixir", "eelixir", "heex" },
 }
 
 vim.lsp.config["gopls"] = {
@@ -85,11 +85,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.enable({ "lua-language-server", "elixir-ls", "gopls" })
+vim.lsp.enable({ "lua-language-server", "expert", "gopls" })
 vim.lsp.inlay_hint.enable(true)
 
-vim.diagnostic.config({
-	virtual_text = { current_line = true },
+vim.o.updatetime = 200
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		local opts = {
+			focusable = true,
+			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+			border = "none",
+			source = "always",
+			prefix = "",
+			header = "",
+		}
+		vim.diagnostic.open_float(opts)
+	end,
 })
 
 vim.cmd("set completeopt+=menuone,noselect,popup")
