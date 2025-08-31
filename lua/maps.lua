@@ -55,6 +55,6 @@ end, { desc = "Spider-ge" })
 
 vim.keymap.set("n", "<Leader>fb", "<CMD>Oil<CR>")
 
-vim.keymap.set("n", "<Leader>ff", require("telescope.builtin").find_files, { noremap = true })
-vim.keymap.set("n", "<Leader>gr", require("telescope.builtin").live_grep, { noremap = true })
-vim.keymap.set("n", "<Leader>b", require("telescope.builtin").buffers, { noremap = true })
+vim.keymap.set("n", "<Leader>ff", "<CMD>Pick files tool='git'<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>gr", "<CMD>Pick grep_live tool='rg'<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>b", "<CMD>Pick buffers<CR>", { noremap = true })

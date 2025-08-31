@@ -6,7 +6,6 @@ vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })
 vim.pack.add({ "https://github.com/chrisgrieser/nvim-spider.git" })
 vim.pack.add({ "https://github.com/stevearc/oil.nvim.git" })
 vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })
-vim.pack.add({ "https://github.com/nvim-telescope/telescope.nvim.git" })
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter.git" })
 vim.pack.add({ "https://github.com/RRethy/nvim-treesitter-endwise.git" })
 
@@ -45,60 +44,12 @@ require("mini.indentscope").setup({
 	symbol = "┊",
 })
 require("mini.pairs").setup({})
+require("mini.pick").setup()
 
 require("oil").setup({
 	keymaps = {
 		["q"] = { "actions.close", mode = "n" },
 		["H"] = { "actions.parent", mode = "n" },
-	},
-})
-
-local layout_strategies = require("telescope.pickers.layout_strategies")
-layout_strategies.horizontal_fused = function(picker, max_columns, max_lines, layout_config)
-	local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
-	layout.prompt.title = ""
-	layout.results.title = ""
-	layout.results.height = layout.results.height + 1
-	if layout.preview ~= false then
-		layout.preview.title = ""
-		layout.preview.borderchars = { "─", "│", "─", " ", "─", "┐", "┘", "─" }
-		layout.results.borderchars = { "─", "│", "─", "│", "┌", "┬", "┤", "├" }
-		layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┐", "┴", "└" }
-	else
-		layout.results.borderchars = { "─", "│", "─", "│", "┌", "┐", "┤", "├" }
-		layout.prompt.borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
-	end
-	return layout
-end
-
-require("telescope").setup({
-	defaults = {
-		file_ignore_patterns = { "node_modules", "_build", "deps", "target", "venv" },
-		path_display = { "tail" },
-		prompt_prefix = " ",
-		mappings = {
-			i = {
-				["<C-u>"] = false,
-				["<Esc>"] = require("telescope.actions").close,
-			},
-			n = {
-				["q"] = require("telescope.actions").close,
-			},
-		},
-		layout_strategy = "horizontal_fused",
-	},
-	pickers = {
-		buffers = {
-			initial_mode = "normal",
-		},
-		diagnostics = {
-			initial_mode = "normal",
-		},
-		lsp_references = {
-			initial_mode = "normal",
-			include_declaration = false,
-			show_line = false,
-		},
 	},
 })
 
