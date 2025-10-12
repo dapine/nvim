@@ -23,6 +23,20 @@ vim.lsp.config["gopls"] = {
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 }
 
+vim.lsp.config["clangd"] = {
+	cmd = { "clangd" },
+	root_markers = {
+		".clangd",
+		".clang-tidy",
+		".clang-format",
+		"compile_commands.json",
+		"compile_flags.txt",
+		"configure.ac",
+		".git",
+	},
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+}
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		vim.keymap.set("n", "grd", vim.lsp.buf.definition, {})
@@ -31,4 +45,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.enable({ "lua-language-server", "expert", "gopls" })
+vim.lsp.enable({ "lua-language-server", "expert", "gopls", "clangd" })
