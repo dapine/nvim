@@ -37,6 +37,28 @@ vim.lsp.config["clangd"] = {
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 
+vim.lsp.config["rust-analyzer"] = {
+	cmd = { "rust-analyzer" },
+	root_markers = {
+		".git",
+		"Cargo.toml",
+	},
+	filetypes = { "rust" },
+	settings = {
+		["rust-analyzer"] = {
+			check = { command = "clippy" },
+			cargo = { targetDir = true },
+			rustc = { source = "discover" },
+			inlayHints = {
+				bindingModeHints = { enabled = true },
+				closureCaptureHints = { enabled = true },
+				closureReturnTypeHints = { enable = "always" },
+				maxLength = 80,
+			},
+		},
+	},
+}
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		vim.keymap.set("n", "grd", vim.lsp.buf.definition, {})
@@ -45,4 +67,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.enable({ "lua-language-server", "expert", "gopls", "clangd" })
+vim.lsp.enable({ "lua-language-server", "expert", "gopls", "clangd", "rust-analyzer" })
