@@ -53,7 +53,7 @@ require("oil").setup({
 	},
 })
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.config").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 	endwise = { enable = true },
