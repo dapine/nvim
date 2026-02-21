@@ -5,3 +5,4 @@ require("lsp")
 require("statusline").setup({
 	use_nerd_fonts = true,
 })
+require("autocmds")

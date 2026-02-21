@@ -6,7 +6,7 @@ vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })
 vim.pack.add({ "https://github.com/chrisgrieser/nvim-spider.git" })
 vim.pack.add({ "https://github.com/stevearc/oil.nvim.git" })
 vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })
-vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter.git" })
+vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" } })
 vim.pack.add({ "https://github.com/RRethy/nvim-treesitter-endwise.git" })
 
 require("conform").setup({

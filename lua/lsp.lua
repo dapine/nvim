@@ -12,7 +12,7 @@ vim.lsp.config["lua-language-server"] = {
 }
 
 vim.lsp.config["expert"] = {
-	cmd = { vim.fn.expand("$HOME/.local/bin/expert") },
+	cmd = { vim.fn.expand("$HOME/.local/bin/expert"), "--stdio" },
 	root_markers = { "mix.exs", ".git" },
 	filetypes = { "elixir", "eelixir", "heex" },
 }
