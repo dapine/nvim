@@ -45,6 +45,13 @@ require("mini.indentscope").setup({
 })
 require("mini.pairs").setup({})
 require("mini.pick").setup()
+require("mini.files").setup({
+	mappings = {
+		go_in_plus = "<Enter>",
+	},
+})
+
+vim.keymap.set("n", "<C-n>", require("mini.files").open, {})
 
 require("oil").setup({
 	keymaps = {
