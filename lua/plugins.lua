@@ -1,25 +1,12 @@
 vim.pack.add({ "https://github.com/miikanissi/modus-themes.nvim.git" })
-vim.pack.add({ "https://github.com/stevearc/conform.nvim.git" })
 vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim.git" })
 vim.pack.add({ "https://github.com/ThePrimeagen/harpoon.git" })
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })
-vim.pack.add({ "https://github.com/chrisgrieser/nvim-spider.git" })
 vim.pack.add({ "https://github.com/stevearc/oil.nvim.git" })
 vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })
 vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" } })
 vim.pack.add({ "https://github.com/RRethy/nvim-treesitter-endwise.git" })
-
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		go = { "goimports-reviser", "golines" },
-		rust = { "rustfmt" },
-	},
-	format_on_save = {
-		timeout_ms = 5000,
-		lsp_fallback = true,
-	},
-})
+vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
 require("gitsigns").setup({
 	on_attach = function()
@@ -45,13 +32,6 @@ require("mini.indentscope").setup({
 })
 require("mini.pairs").setup({})
 require("mini.pick").setup()
-require("mini.files").setup({
-	mappings = {
-		go_in_plus = "<Enter>",
-	},
-})
-
-vim.keymap.set("n", "<C-n>", require("mini.files").open, {})
 
 require("oil").setup({
 	keymaps = {
