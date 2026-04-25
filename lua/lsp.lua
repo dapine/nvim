@@ -6,4 +6,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.enable({ "lua-language-server", "expert", "gopls", "clangd", "rust-analyzer" })
+vim.lsp.enable({ "lua_ls", "expert", "gopls", "clangd", "rust_analyzer" })
