@@ -19,4 +19,3 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
 vim.opt.termguicolors = true
-vim.cmd("colorscheme modus_operandi")

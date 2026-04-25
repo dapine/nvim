@@ -8,6 +8,7 @@ local M = {}
 
 Settings = {
 	use_nerd_fonts = false,
+    colorscheme = "default"
 }
 
 function M.setup(user_settings)
@@ -45,6 +46,17 @@ local function mode()
 end
 
 local function update_mode_colors()
+    if Settings.colorscheme == "modus_operandi" then
+        local colors = require("modus-themes.colors").setup()
+
+        vim.api.nvim_set_hl(0, 'StatuslineAccent', { bg = colors.blue_faint, fg = colors.bg_dim })
+        vim.api.nvim_set_hl(0, 'StatuslineInsertAccent', { bg = colors.green_faint, fg = colors.bg_dim })
+        vim.api.nvim_set_hl(0, 'StatuslineVisualAccent', { bg = colors.magenta_faint, fg = colors.bg_dim })
+        vim.api.nvim_set_hl(0, 'StatuslineReplaceAccent', { bg = colors.red_faint, fg = colors.bg_dim })
+        vim.api.nvim_set_hl(0, 'StatuslineCmdLineAccent', { bg = colors.yellow_faint, fg = colors.bg_dim })
+        vim.api.nvim_set_hl(0, 'StatuslineTerminalAccent', { bg = colors.green_faint, fg = colors.bg_dim })
+    end
+
 	local current_mode = vim.api.nvim_get_mode().mode
 	local mode_color = "%#StatusLineAccent#"
 	if current_mode == "n" then
@@ -151,7 +163,7 @@ Statusline.active = function()
 		"%#Statusline#",
 		update_mode_colors(),
 		mode(),
-		"%#StatuslineAccent#",
+		"%#Statusline#",
 		git_branch(),
 		"%#Normal# ",
 		file_modified(),
