@@ -9,40 +9,40 @@ vim.pack.add({ "https://github.com/RRethy/nvim-treesitter-endwise.git" })
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
 require("gitsigns").setup({
-	on_attach = function()
-		local gs = package.loaded.gitsigns
+    on_attach = function()
+        local gs = package.loaded.gitsigns
 
-		vim.keymap.set("n", "<leader>gb", gs.toggle_current_line_blame)
-	end,
+        vim.keymap.set("n", "<leader>gb", gs.toggle_current_line_blame)
+    end,
 })
 
 require("harpoon").setup()
 
 require("mini.trailspace").setup()
 require("mini.surround").setup({
-	mappings = {
-		add = "S",
-	},
+    mappings = {
+        add = "S",
+    },
 })
 require("mini.indentscope").setup({
-	draw = {
-		animation = require("mini.indentscope").gen_animation.none(),
-	},
-	symbol = "┊",
+    draw = {
+        animation = require("mini.indentscope").gen_animation.none(),
+    },
+    symbol = "┊",
 })
 require("mini.pairs").setup({})
 require("mini.pick").setup()
 
 require("oil").setup({
-	keymaps = {
-		["q"] = { "actions.close", mode = "n" },
-		["H"] = { "actions.parent", mode = "n" },
-	},
+    keymaps = {
+        ["q"] = { "actions.close", mode = "n" },
+        ["H"] = { "actions.parent", mode = "n" },
+    },
 })
 
 require("nvim-treesitter.config").setup({
-	highlight = { enable = true },
-	indent = { enable = true },
-	endwise = { enable = true },
-	ensure_installed = { "rust", "lua", "bash", "elixir", "eex", "heex" },
+    highlight = { enable = true },
+    indent = { enable = true },
+    endwise = { enable = true },
+    ensure_installed = { "rust", "lua", "bash", "elixir", "eex", "heex" },
 })
