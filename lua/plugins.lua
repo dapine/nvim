@@ -1,4 +1,5 @@
 vim.pack.add({ "https://github.com/miikanissi/modus-themes.nvim.git" })
+vim.pack.add({ "https://github.com/WTFox/jellybeans.nvim" })
 vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim.git" })
 vim.pack.add({ "https://github.com/ThePrimeagen/harpoon.git" })
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })

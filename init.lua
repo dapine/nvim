@@ -10,4 +10,5 @@ require("statusline").setup({
 })
 require("autocmds")
 
+vim.cmd("set background=light")
 vim.cmd("colorscheme " .. colorscheme)

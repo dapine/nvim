@@ -55,6 +55,15 @@ local function update_mode_colors()
         vim.api.nvim_set_hl(0, 'StatuslineReplaceAccent', { bg = colors.red_faint, fg = colors.bg_dim })
         vim.api.nvim_set_hl(0, 'StatuslineCmdLineAccent', { bg = colors.yellow_faint, fg = colors.bg_dim })
         vim.api.nvim_set_hl(0, 'StatuslineTerminalAccent', { bg = colors.green_faint, fg = colors.bg_dim })
+    elseif Settings.colorscheme == "jellybeans" then
+        local palette = require("jellybeans.palettes").get_palette("jellybeans").palette
+
+        vim.api.nvim_set_hl(0, 'StatuslineAccent', { bg = palette.ship_cove, fg = palette.background })
+        vim.api.nvim_set_hl(0, 'StatuslineInsertAccent', { bg = palette.green_smoke, fg = palette.background })
+        vim.api.nvim_set_hl(0, 'StatuslineVisualAccent', { bg = palette.wewak, fg = palette.background })
+        vim.api.nvim_set_hl(0, 'StatuslineReplaceAccent', { bg = palette.old_brick, fg = palette.foreground })
+        vim.api.nvim_set_hl(0, 'StatuslineCmdLineAccent', { bg = palette.goldenrod, fg = palette.background })
+        vim.api.nvim_set_hl(0, 'StatuslineTerminalAccent', { bg = palette.green_smoke, fg = palette.background })
     end
 
     local current_mode = vim.api.nvim_get_mode().mode
