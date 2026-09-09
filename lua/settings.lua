@@ -12,6 +12,7 @@ vim.opt.splitright = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menuone,noselect,popup"
 vim.opt.mouse = "a"
+vim.opt.scrolloff = 10
 
 -- Visual
 vim.opt.showmatch = true
